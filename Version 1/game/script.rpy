@@ -10,14 +10,14 @@ define h = Character("Hans", color="#b47643c7")
 
 label start:
 
+    "Game Starting"
+
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    "Game Start"
-
     scene bg room
-    with None
+    with fade
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
@@ -25,26 +25,28 @@ label start:
 
     show boy at left
 
-    # These display lines of dialogue.
+    # These display lines of dialogue.s
 
-    e "Lorem Ipsum"
+    e "This is the main script file"
 
     hide boy
 
     show girl at right
-
-    h "Lorem Ipsum"
-
+    h "You will now move to the chapter 1 script file"
     hide girl
+
+    call chapter_1
+
     show boy at left
     with dissolve
+    e "You are back at the main script file"
 
-    menu repeat:
-        "Repeat from Game Start?"
+    menu repeatMain:
+        e "Repeat from Game Start?"
         "Yes":
             jump start
         "No":
-            "Ending"
+            e "..."
 
     e "Game End"
 
