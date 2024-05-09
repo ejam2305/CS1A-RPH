@@ -5,7 +5,7 @@
 
 # The game starts here.
 
-label start:
+label chapter_2:
 
     "Game Start"
 
