@@ -50,3 +50,6 @@ label chapter_1:
     # This closes the chapter 1 file and puts the player back in the main script file
 
     return
+
+label sub_chapter1:
+    
