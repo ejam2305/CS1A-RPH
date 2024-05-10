@@ -12,7 +12,7 @@ define rizal = Character("Dr. Jose Rizal", color="#95fff3", voice_tag="deMorga")
 
     #subChapt 3 Characters
 
-define captainFigueroa = Character("Captain Estevan Figueroa", color="#fd6e6e", voice_tag=figueroa )
+define figueroa = Character("Captain Estevan Figueroa", color="#fd6e6e", voice_tag= "figueroa")
 # The game starts here.
 
 label chapter_2:

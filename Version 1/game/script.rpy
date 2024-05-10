@@ -9,9 +9,9 @@ define mc = Character("[mcName]", color="#ffc8c8", voice_tag="[mcGender]")
 define mcInner = Character("[mcName]", color="", voice_tag="[mcGender]")
 define AI = Character("AI", color="#c8c8ff", voice_tag="ai")
 
-define pronoun #he she
-define sub_pronoun1 #his her
-define sub_pronoun2 #him
+define pronoun = " " #he she
+define sub_pronoun1 = " " #his her
+define sub_pronoun2 = " " #him
 
 
 # Transition declaration
@@ -109,6 +109,7 @@ label ask_gender:
                 pronoun = "he"
                 sub_pronoun1 = "his"
                 sub_pronoun2 = "him"
+            call skip
 
         "I'm a female":
             python:
@@ -116,11 +117,28 @@ label ask_gender:
                 pronoun = "she"
                 sub_pronoun1 ="her"
                 sub_pronoun2 ="her"
+            call skip
 
         "Stop ignoring my questions.":
             call ask_gender
-
-        "Proceed to Chapter 2":
-            call chapter_2
     
+#Debugging purposes
+label skip:
+    menu:
+        "Choose Chapter"
+
+        "Chapter 1":
+            call chapter_1
+
+        "Chapter 2":
+            call chapter_2
+
+        "Chapter 3":
+            call chapter_3
+
+        "Chapter 4":
+            call chapter_4
+
+        "Chapter 5":
+            call chapter_5
     return
