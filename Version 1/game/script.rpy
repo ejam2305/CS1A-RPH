@@ -6,19 +6,20 @@
 # Character declaration
 
 define mc = Character("[mcName]", color="#ffc8c8", voice_tag="[mcGender]")
-define mcInner = Character("[mcName]", color="", voice_tag="[mcGender]")
+define mcInner = Character("[mcName]", color="#b47e7e", voice_tag="[mcGender]")
 define AI = Character("AI", color="#c8c8ff", voice_tag="ai")
-
 
 default pronoun = ""
 default sub_pronoun1 = ""
 default sub_pronoun2 = ""
 
-
 # Transition declaration
 
-define fadetoWhite = Fade(1, 1, 1, color="#FFF")
-define fadetoBlack = Fade(1, 1, 1, color="#000")
+define fadetoWhite = Fade(1, 1, 1, color="#FFF")                    # Usage Example
+define fadetoBlack = Fade(1, 1, 1, color="#000")                    # show [image] with fadetoWhite
+
+define eyeopen = ImageDissolve("eye.png", 1.0, 16, reverse=False)
+define eyeclose = ImageDissolve("eye.png", 1.0, 16, reverse=True)
 
 transform fadeInSlow:       # Usage Example
     alpha 0.0               # show [image] at fadeInSlow
@@ -29,11 +30,23 @@ transform fadeOutSlow:      # Usage Example
     easein 1.0 alpha 0.0    # pause(1)
                             # hide [image]
 
+transform blurIn:
+    blur 0.0
+    easein 1.0 blur 1.0
+
+transform blurOut:
+    blur 1.0
+    easein 1.0 blur 0.0
+
 label slowTextfade(info):                   # Usage Example
-    centered "{cps=2.5}{b}[info]{nw=2}"     # call slowTextfade("Enter Text Here")
+    centered "{cps=7.5}{b}[info]{nw=2}"     # call slowTextfade("Enter Text Here")
     show text "{b}[info]{nw=2}" as text1        
-    hide text1 with fadetoBlack
+    show text "{b}[info]" at fadeOutSlow as text1
+    pause(1)
+    hide text1
     return
+
+
 
 # Preferences declaration
 
@@ -48,6 +61,8 @@ label start:
 
     pause(2)
 
+    scene bg gray with fadetoBlack
+
     "???" "It's nice to meet you."
     "???" "You must still be confused right after waking up."
     "???" "Do you remember your name?"
@@ -60,14 +75,13 @@ label start:
                 mcName = renpy.input("What should you be called? ")
                 if(mcName == ""):
                     mcName = "Self"
-            
+                mcName = mcName.capitalize()
+
         "No":
             "???" "That's too bad."
             python:
                 mcName = "Self"
 
-
-    show bg white with fadetoBlack
 
     pause(1)
 
@@ -79,19 +93,22 @@ label start:
 
     mc "That doesn't answer my question. Where am I?"
 
+    $ first = True
     call ask_gender
 
-    "???" "I'm sorry but our time is running out."
+    "???" "Now, my next question is-{nw=0.2}"
+
+    "???" "I'm sorry.{nw=1.5}"
+
+    "???" "It seems that our time is running out.{nw=1}"
     
-    "???" "I wish you good luck in your journey"
+    "???" "I wish you good luck in your journey{nw=1}"
 
-    show bg black with fadetoBlack
+    scene bg black with fadetoBlack
 
-
+    pause(1)
 
     call skip
-
-
 
     call chapter_1
 
@@ -105,11 +122,8 @@ label start:
 
     return
 
-
-
 label ask_gender:
     "???" "Do you remember your gender?"
-
     menu:
         "Respond with?"
 
@@ -119,7 +133,6 @@ label ask_gender:
                 pronoun = "he"
                 sub_pronoun1 = "his"
                 sub_pronoun2 = "him"
-            call skip
 
         "I'm a female":
             python:
@@ -127,10 +140,12 @@ label ask_gender:
                 pronoun = "she"
                 sub_pronoun1 ="her"
                 sub_pronoun2 ="her"
-            call skip
 
-        "Stop ignoring my questions.":
+        "Stop ignoring my questions." if first == True:
+            $ first = False
             call ask_gender
+
+    return
     
 #Debugging purposes
 label skip:
