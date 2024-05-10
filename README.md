@@ -1,7 +1,11 @@
 # CS1A-RPH
 This repository was created for the project of Class 1A in HIST101
 
-SETUP
+[SETUP](#setup)
+
+[IMPORANT NOTE](#important-note)
+
+# SETUP
 1. Download and Install RenPy from https://www.renpy.org/latest.html
 
 2. Download and Install GitHub Desktop from https://desktop.github.com/
@@ -17,5 +21,11 @@ SETUP
 
 6. In the RenPy launcher, click preferences and change the text editor into your preferred IDE
 
-IMPORPTANT NOTE!
-When submitting a pull request, only upload the .rpy file and do not include the .rpyc file.
+
+
+
+
+# IMPORTANT NOTE
+
+When submitting a pull request, please only upload the .rpy file and do not include the .rpyc file.
+
