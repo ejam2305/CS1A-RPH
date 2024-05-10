@@ -9,10 +9,6 @@ define mc = Character("[mcName]", color="#ffc8c8", voice_tag="[mcGender]")
 define mcInner = Character("[mcName]", color="", voice_tag="[mcGender]")
 define AI = Character("AI", color="#c8c8ff", voice_tag="ai")
 
-
-
-
-
 # Transition declaration
 
 define fadetoWhite = Fade(1, 1, 1, color="#FFF")
@@ -87,23 +83,13 @@ label start:
 
     call chapter_1
 
+    call chapter_2
 
+    call chapter_3
 
+    call chapter_4
 
-    show boy at left
-    with dissolve
-    mc "You are back at the main script file"
-
-    menu repeatMain:
-        mc "Repeat from Game Start?"
-        "Yes":
-            jump start
-        "No":
-            mc "..."
-
-    mc "Game End"
-
-    # This ends the game.
+    call chapter_5
 
     return
 
