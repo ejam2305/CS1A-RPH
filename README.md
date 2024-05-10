@@ -1,9 +1,16 @@
 # CS1A-RPH
 This repository was created for the project of Class 1A in HIST101
 
+[IMPORTANT NOTE](#important-note)
+
 [SETUP](#setup)
 
-[IMPORANT NOTE](#important-note)
+
+# IMPORTANT NOTE
+
+When submitting a pull request, please only upload the .rpy file and do not include the .rpyc file.
+
+
 
 # SETUP
 1. Download and Install RenPy from https://www.renpy.org/latest.html
@@ -25,7 +32,5 @@ This repository was created for the project of Class 1A in HIST101
 
 
 
-# IMPORTANT NOTE
 
-When submitting a pull request, please only upload the .rpy file and do not include the .rpyc file.
 
