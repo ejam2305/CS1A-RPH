@@ -16,3 +16,6 @@ SETUP
 ![2024-05-10 17_35_49-Ren'Py Launcher](https://github.com/ejam2305/CS1A-RPH/assets/46189881/afd734da-1ec0-4beb-a6ea-77fee23c3e31)
 
 6. In the RenPy launcher, click preferences and change the text editor into your preferred IDE
+
+IMPORPTANT NOTE!
+When submitting a pull request, only upload the .rpy file and do not include the .rpyc file.
