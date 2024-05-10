@@ -9,25 +9,16 @@ define mc = Character("[mcName]", color="#ffc8c8", voice_tag="[mcGender]")
 define mcInner = Character("[mcName]", color="", voice_tag="[mcGender]")
 define AI = Character("AI", color="#c8c8ff", voice_tag="ai")
 
+define pronoun #he she
+define sub_pronoun1 #his her
+define sub_pronoun2 #him
+
+
 # Transition declaration
 
 define fadetoWhite = Fade(1, 1, 1, color="#FFF")
 define fadetoBlack = Fade(1, 1, 1, color="#000")
 
-transform fadeInSlow:       # Usage Example
-    alpha 0.0               # show [image] at fadeInSlow
-    easein 1.0 alpha 1.0
-
-transform fadeOutSlow:      # Usage Example
-    alpha 1.0               # show [image] at fadeOutSlow
-    easein 1.0 alpha 0.0    # pause(1)
-                            # hide [image]
-
-label slowTextfade(info):                   # Usage Example
-    centered "{cps=2.5}{b}[info]{nw=2}"     # call slowTextfade("Enter Text Here")
-    show text "{b}[info]{nw=2}" as text1        
-    hide text1 with fadetoBlack
-    return
 
 # Preferences declaration
 
@@ -36,9 +27,13 @@ default preferences.text_cps = 20
 
 
 label start:
-    call slowTextfade("Lorem Ipsum")
+    centered "{cps=2.5}{b}Lorem Ipsum{nw=2}"
+    show text "{b}Lorem Ipsum{nw}" as text1
+    hide text1 with fadetoBlack
 
-    call slowTextfade("Dolor Sit Amet")
+    centered "{cps=2.5}{b}{color=#FFF}Dolor Sit Amet{nw=2}"
+    show text "{b}Dolor Sit Amet" as text1
+    hide text1 with fadetoBlack
 
     pause(2)
 
@@ -75,21 +70,28 @@ label start:
 
     call ask_gender
 
-    "???" "I'm sorry but our time is running out."
-    
-    "???" "I wish you good luck in your journey"
 
-    show bg black with fadetoBlack
+
+
+
+    "???" "You will now move to the chapter 1 script file"
 
     call chapter_1
 
-    call chapter_2
+    show boy at left
+    with dissolve
+    mc "You are back at the main script file"
 
-    call chapter_3
+    menu repeatMain:
+        mc "Repeat from Game Start?"
+        "Yes":
+            jump start
+        "No":
+            mc "..."
 
-    call chapter_4
+    mc "Game End"
 
-    call chapter_5
+    # This ends the game.
 
     return
 
@@ -104,12 +106,21 @@ label ask_gender:
         "I'm a male":
             python:
                 mcGender = "mcMale"
+                pronoun = "he"
+                sub_pronoun1 = "his"
+                sub_pronoun2 = "him"
 
         "I'm a female":
             python:
                 mcGender = "mcFemale"
+                pronoun = "she"
+                sub_pronoun1 ="her"
+                sub_pronoun2 ="her"
 
         "Stop ignoring my questions.":
             call ask_gender
+
+        "Proceed to Chapter 2":
+            call chapter_2
     
     return
