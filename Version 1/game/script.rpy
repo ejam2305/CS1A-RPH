@@ -30,13 +30,8 @@ transform fadeOutSlow:      # Usage Example
     easein 1.0 alpha 0.0    # pause(1)
                             # hide [image]
 
-transform blurIn:
-    blur 0.0
-    easein 1.0 blur 1.0
-
-transform blurOut:
-    blur 1.0
-    easein 1.0 blur 0.0
+transform halfsize:
+    zoom 0.75
 
 label slowTextfade(info):                   # Usage Example
     centered "{cps=7.5}{b}[info]{nw=2}"     # call slowTextfade("Enter Text Here")
@@ -73,14 +68,15 @@ label start:
         "Yes":
             python:
                 mcName = renpy.input("What should you be called? ")
-                if(mcName == ""):
-                    mcName = "Self"
+                mcName = mcName.strip()
+                if not mcName:
+                    mcName = "Hans"
                 mcName = mcName.capitalize()
 
         "No":
             "???" "That's too bad."
             python:
-                mcName = "Self"
+                mcName = "Hans"
 
 
     pause(1)
@@ -96,13 +92,13 @@ label start:
     $ first = True
     call ask_gender
 
-    "???" "Now, my next question is-{nw=0.2}"
+    "???" "Now, my next question is-{nw}"
 
-    "???" "I'm sorry.{nw=1.5}"
+    "???" "I'm sorry.{nw=1}"
 
     "???" "It seems that our time is running out.{nw=1}"
     
-    "???" "I wish you good luck in your journey{nw=1}"
+    "???" "I wish you good luck in your journey.{nw=1}"
 
     scene bg black with fadetoBlack
 
