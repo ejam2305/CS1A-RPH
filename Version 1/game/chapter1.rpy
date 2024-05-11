@@ -6,19 +6,22 @@
 # The chapter starts here.
 
 define hector = Character("Hector Santos", color="#ffd588", voice_tag="Hector")
+define y = Character("Classmate \"Y", color="#8cbb6d",)
 
 label chapter_1:
     show bg black with fadetoBlack
 
     call slowTextfade("Early Philippine History")
 
-    call sub_chapter1
+    call ch1sub_chapter1
 
+    call ch1sub_chapter2
 
+    call ch1sub_chapter3
 
     return
 
-label sub_chapter1:
+label ch1sub_chapter1:
     
     ## Scene 1
 
@@ -49,11 +52,11 @@ label sub_chapter1:
 
     mcInner "Huh?"
     
-    "???" "I am [[AI Name], an AI designed to help you on your journey. Please take a look at your left wrist."
+    "???" "I am Triton-512, an AI designed to help you on your journey. Please take a look at your left wrist."
 
     show mc left arm request at left
 
-    AI "I have been installed in this watch to help you throughout your journey. You can call me [[AI Name]]."
+    AI "I have been installed in this watch to help you throughout your journey. You can call me Triton."
 
 
     show bg campus dawn request:
@@ -83,7 +86,7 @@ label sub_chapter1:
 
             AI "I take it that you don't remember much. Let me explain it for you."
 
-    AI "You have been transported to a different timeline. While transporting, I lost my function to travel to another timeline."
+    AI "You have been transported to a different timeline. While transporting, I lost my function to travel to other timeline."
 
     AI "It also seems that you lost a portion of your memories, but that won't be a problem. For now, I ask that you help me regain my ability to timeleap."
 
@@ -98,7 +101,7 @@ label sub_chapter1:
         "If I help you...":
             mc "If I help you...\nWill that bring me to my original timeline?"
             
-            AI "Yes. That is part of my directive."
+            AI "Yes. That is part of my directives."
 
     AI "The only way to restore my ability to timeleap is for you to acquire something from this timeline."
 
@@ -130,7 +133,7 @@ label sub_chapter1:
 
     pause(1)
 
-    mc "And my clothes look familiar but-{nw}"
+    mc "And my clothes look familiar but my memories are still foggy"
 
     hide mc neutral
 
@@ -148,7 +151,7 @@ label sub_chapter1:
     
     mcInner "The watch said that I must acquire something from this timeline, so I assume that Hector has something to do with that. But what will that be?"
 
-    mcInner " I still don't know what's the item that I need to obtain from Hector, but whatever it is I need to get close to him ASAP, so that I can return to my own timeline. "
+    mcInner "I still don't know what's the item that I need to obtain from Hector, but whatever it is I need to get close to him ASAP, so that I can return to my own timeline. "
 
     ## play footstep sound
 
@@ -168,7 +171,7 @@ label sub_chapter1:
 
     hector "Para naman sagutin ang iyong tanong, mayroon akong alam kung saan ka maaaring makituloy ng pansamantala."
 
-    hector "Sumama ka saakin. Dadalhin kita kung saan ako nananatili. Mayroon pa akong isang kuwartong hindi nagagagamit."
+    hector "Sumama ka sa akin, dadalhin kita kung saan ako nananatili. Mayroon pa akong isang silid na hindi ginagamit."
 
     hector "Kung nais mo ay maaaring doon ka muna manatili."
 
@@ -193,24 +196,20 @@ label sub_chapter1:
 
     show hector request at center
                                     #add slide to right transition
-    hector "Ako si Hector Santos. Ako ay nag-aaral sa Ateneo de Manila. Ano ang iyong pangalan? Paano ka napadpad sa loob ng unibersidad?"
+    hector "Ako si Hector Santos, isa akong mag-aaral sa Unibersidad ng Ateneo de Manila. Ano ang iyong pangalan? Paano ka napadpad sa loob ng unibersidad?"
     
     menu:
         mcInner "Paano ko ipapaliwanag ang sarili ko..."
 
-        "Ako si [mcName]":
+        "Ako nga pala si [mcName]":
+            mc "Where are my manners? HAHAHA Ako nga pala si [mcName], ako'y nagmula sa San Carlos Seminary. Mayroon kaming pagsusulit in which kailangan namin maghanap ng isang scholar or historian." 
+
+        "Ako'y nagmula sa San Carlos Seminary":
             mc "Where are my manners? HAHAHA Ako nga pala si [mcName], ako'y nagmula sa San Carlos Seminary. Mayroon kaming pagsusulit in which kailangan namin maghanap ng isang scholar or historian." 
             
-            mc "Pagmamasadan namin sila at gagawa kame ng report after. Funded naman ito ng eskwelahan so hinde ko na kailangan mag-worry sa gastusin." 
+    mc "Pagmamasadan namin sila at gagawa kame ng report after. Funded naman ito ng eskwelahan so hinde ko na kailangan mag-worry sa gastusin." 
             
-            mc "Oh, by the way may kilala po ba kayo na historian or kahit scholar?"
-
-        "Nasa unibersidad ako dahil...":
-            mc "Nasa unibersidad ako dahil mayroon kaming pagsusulit in which kailangan namin maghanap ng isang scholar or historian."
-
-            mc "Where are my manners? HAHAHA Ako nga pala si [mcName], ako'y nagmula sa San Carlos Seminary."
-
-            mc "Kailangan kong maghanap ng isang scholar o historian dahil pagmamasadan namin sila at gagawa kame ng report after. Funded naman ito ng eskwelahan so hinde ko na kailangan mag-worry sa gastusin."
+    mc "Oh, by the way may kilala po ba kayo na historian or kahit scholar?"
 
     hector "Ahh ganun ba? Isa nga pala ako sa mga iskolar ng Ateneo de Manila dalubhasa sa mga makasaysayang relikya. Kasalukuyan kong pinag-aaralan ang tungkol sa LCI para matukoy ko kung kailan ito ginawa."
     
@@ -240,7 +239,7 @@ label sub_chapter1:
 
     call slowTextfade("Pagkatapos ng ilang araw")
 
-    show bg hector house request at fadeInSlow
+    show bg hector house request with fadetoBlack
 
     show hector request at fadeInSlow, right
 
@@ -248,11 +247,9 @@ label sub_chapter1:
 
     show hector request at fadeOutSlow, right   
 
-    show bg hector lci request at fadeOutSlow
+    show bg hector lci request with fadetoBlack
 
-    hide hector request
-
-    show mob_character lci request at left
+    show mob_character lci request as mobchar1 at left
 
     show mob_character lci request as mobchar2 at right
 
@@ -262,16 +259,19 @@ label sub_chapter1:
 
     "Scholar" "Maayos lang iyon Ginoong Hector. Magandang umaga sa iyo [mcName]." 
 
-    "Scholar" "Sa tingin din po namin ay malapit nang matapos ang ating pagsalin sa LCI. Ilang araw nalang at mapapalathala na natin ang ating nasaliksik dito."
+    "Scholar" "Sa tingin din po namin ay malapit nang matapos ang ating pagsasalin sa LCI. Ilang araw na lang at mapapala thala na natin ang ating nasaliksik dito."
 
-    hector "Abay ito ay magandang balita! Ipatpatuloy na natin ito mga ginoo."
+    hector "Abay ito ay magandang balita! Ipagpatuloy na natin ito mga ginoo."
 
     show bg black with fadetoBlack
-    show mob character lci request at fadeOutSlow
-    show mob character lci request as mobchar2 at fadeOutSlow
+
+    show mob character lci request as mobchar1 at left, fadeOutSlow
+
+    show mob character lci request as mobchar2 at right, fadeOutSlow
+
     show hector request at fadeOutSlow
 
-    hide mob character lci request
+    hide mobchar1
     hide mobchar2
     hide hector request
 
@@ -281,7 +281,7 @@ label sub_chapter1:
 
     ## WIP IN PROGRESS
 
-    show bg hector lci request at fadeInSlow
+    show bg hector lci request with fadetoBlack
 
     show hector request at fadeInSlow
 
@@ -291,7 +291,7 @@ label sub_chapter1:
 
     show hector request at fadeOutSlow
 
-    show bg hector house request at fadeInSlow
+    show bg hector house request with fadetoBlack
 
     show hector request at fadeInSlow, right
 
@@ -305,6 +305,8 @@ label sub_chapter1:
 
     mc "Once again thank you very much ginoong Hector at ako'y mauuna na hanggang sa muli nating pagkikita."
 
+    hide hector request
+
     AI "You just obtained an item which can be used to partially repair and restore my timeleap ability so that you can travel back to your timeline."
 
     AI "Are you ready to go?"
@@ -313,11 +315,157 @@ label sub_chapter1:
         mcInner "..."
 
         "Yes":
-            mc "Goodbye Mr. Hector Santos."
+            mc "This journey was fun but I want to return to my original timeline."
 
         "No":
             AI "Unfortunately, we cannot remain in a timeline for longer than necessary."
 
     ## teleport effect
 
+    show bg black with fadetoWhite
+
+
+
     return
+
+label ch1sub_chapter2:
+
+    call slowTextfade("Chau Ju Kua's Chu Fan Chi")
+
+    $ i = 0
+    while i < 2:
+        show bg classroom request with eyeopen:
+            blur 5.0
+        pause(1)
+        show bg black with eyeclose
+        pause(1)
+        $ i =  i + 1
+    $ i = 0
+
+    show bg classroom request with eyeopen:
+        blur 5.0
+        easein 2.0 blur 0.0
+    
+    show classmate y request at right, fadeInSlow
+
+    y "Uhmm… Hello??? Gising na, kanina kapa natutulog."
+
+    mc "Huh? Seryoso?"
+
+    y "Ano ba ang napanaginipan mong maganda para makatulog ka nang ganun kahimbing sa loob silid aralan?"
+
+    mc "I forgot most of it… pero naalala ko na nakikipag kwento ako sa isang historian na familiar ang mukha…"
+
+    y "Di bale na ano ang napanaginipan mo, malapit nang magsimula ang klase buti nga napansin ko na tulog ka at nakapag desisyonan ko na gisingin ka hanggat hindi pa nakarating ang guro dito."
+
+    mc "Thank you talaga dahil ginising mo ako."
+
+    show classmate y request at right, fadeOutSlow
+
+    # door open sfx
+    # professor footsteps sfx
+
+    show professor request at center, fadeInSlow
+
+    "Professor" "Ang pagsusulit na gagawin ninyo sa araw na ito, ay magsusulat kayo ng personal na pagsusuri sa libro na nagngangalang “Chu Fan Chi” sa kadahilanang itinalaga ko to sa inyo na basahin kagabi."
+
+    show professor request at center, fadeOutSlow
+    pause(1)
+    hide professor request
+    show classmate y request at center, fadeInSlow
+
+    mc "Nako hindi ko nabasa ang librong iyon at hindi ako nag-aral kagabi. Paano na ito ngayon?"
+
+    y "Akong bahala sa'yo, ang librong “Chu Fan Chi” ay isinulat noong 1225 ng isang chinese nobleman na nagngangalang Chau-Ju-Kua. Itong libro ay isinalin sa pangalang “Records of Various Barbarous Nations”." 
+    
+    y "Ang librong ito ay nagsisilbing dokumentasyong kalakalan sa pagitan ng China at Pilipinas. Ito ay mga salaysay ng mga tao sa pilipinas at pagsasagawa ng kalakalan."
+
+    y "May hindi ka ba naintindihan sa aking mga sinabi?"
+
+    mc "Ohh, I understand it now. Maraming salamat sa pagpapaliwanag. Ngayon ay pwede ko nang gawin at tapusin ang pagsusulit na binigay satin."
+
+    show classmate y request at center, fadeOutSlow
+    pause(1)
+    hide classmate y request
+
+    ## insert monologue thats not in dialogue file for some reason
+
+    pause(2)
+
+    show bg black with fadetoWhite
+
+    return
+
+label ch1sub_chapter3:
+
+    call slowTextfade("Antonio Pigafetta")
+
+    show bg beach request with fadetoBlack
+
+    mc "What's going on? Where am I?"
+
+    AI "You have been transported onto another timeline."
+
+    mc "What are you talking about?! I thought you'd been put right!"
+
+    AI "Not exactly. you have been transported to another timeline, a timeline that isn't your own but closer to your original timeline."
+    
+    AI "You must once again find something from this timeline to repair me."
+
+    mc "What?! What can I take from this timeline that can repair you?!"
+
+    AI "It's something you will have to figure out on your own. My only hint is that it is not something physical."
+
+    mc "What?"
+
+    pause(1)
+
+    # show spaniard on screen
+
+    "???" "What are you doing here" #translate to spanish
+
+    mc "Wait!"
+
+    # punch sfx
+
+    show bg black with fadetoBlack
+
+    $ i = 0
+    while i < 2:
+        show bg storage room request with eyeopen:
+            blur 5.0
+        pause(1)
+        show bg black with eyeclose
+        pause(1)
+        $ i =  i + 1
+    $ i = 0
+
+    show bg storage room request with eyeopen
+
+    show mc left arm request at left
+
+    mc "Why did you even bring me here in the first place?!"
+
+    AI "I do not have much control over which timeline you're transported to."
+
+    mc "So what do you want me to do?! Heck, forget what I ought to do, where did you even transport me to?!"
+
+    AI "The only hint I can give is it is the year 1521."
+
+    mc "C'mon! I need an answer now!"
+
+    hide mc left arm request
+
+    mcInner "1521? I'm pretty sure that's around the Battle of Mactan but I can't remember the people in that event."
+
+    mc "Battle of Mactan... someone important died. Who was it?"
+
+    show spaniard request at left
+
+    "Spaniard" "¿Hablas español?"
+
+    "AI(Whispering)" "Translation activated."
+
+    mc "Sí, sí hablo español."
+
+    "Spaniard" "¿Qué haces aquí cerca del campamento? (What are you doing here near the camp?)"
