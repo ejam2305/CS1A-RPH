@@ -47,7 +47,7 @@ label chapter_4:
 
         mc "(Listening intently) General Wood? Hindi ba siya yung  American gobernador-heneral?"
 
-        "..." "(Chatter of multiple people discussing the /"anti-filipino/" report from Gen. Wood administration.)"
+        "..." "(Chatter of multiple people discussing the \"anti-filipino\" report from Gen. Wood administration.)"
 
         Person3 "(Joining the group) Nakita niyo ba ang bagong balita? Pinipinta tayo ng administrasyon ni Wood bilang anti-Filipino!"
 
@@ -63,20 +63,20 @@ label chapter_4:
     
     
         #Scene 2
-            "..." "the next day,[mc] goes to the same alley-way surprised to see that the number of people have doubled and that it had more important looking people."
+        "..." "the next day,[mc] goes to the same alley-way surprised to see that the number of people have doubled and that it had more important looking people."
 
-            " [mc] (Inner monologue)"" hmmm… Sa sino sino kaya ang mga importanteng tao sa mga iyon? Siguro puro sila mga politiko…"
+        " [mc] (Inner monologue)"" hmmm… Sa sino sino kaya ang mga importanteng tao sa mga iyon? Siguro puro sila mga politiko…"
 
-            "..." "It seemed that the Filipinos at the time decided to create a petition letter to address their grievances against Governor-General Leonard Wood. The person writing the letter reads aloud as they write the letter."
-            Person4 "The first twenty years of civil government were marked by mutual understanding and loyal cooperation between American and Filipinos. At the end of that period, when it seemed that the goal had finally been reached, after the President of the United States had advised the Congress that the time had come for America to fulfill [sub_pronoun2] sacred pledge. Major-General Leonard Wood was sent to the Philippines as Governor-General, Cognizant of the part taken by General Wood in the liberation of Cuba, the Filipino people expected that under [sub_pronoun1] administration the spirit of cooperation would be maintained and that the work of political emancipation would be complete. Contrary, however, to our expectations, [sub_pronoun1] conduct of government has been characterized by a train of usurpations and arbitrary acts, resulting in the curtailment of our autonomy. the destruction of our constitutional system, and the reversal of America's Philippine policy."
-            
-            " [mc] wonders for a bit and connects the pieces of the puzzle"
+        "..." "It seemed that the Filipinos at the time decided to create a petition letter to address their grievances against Governor-General Leonard Wood. The person writing the letter reads aloud as they write the letter."
+        Person4 "The first twenty years of civil government were marked by mutual understanding and loyal cooperation between American and Filipinos. At the end of that period, when it seemed that the goal had finally been reached, after the President of the United States had advised the Congress that the time had come for America to fulfill [sub_pronoun2] sacred pledge. Major-General Leonard Wood was sent to the Philippines as Governor-General, Cognizant of the part taken by General Wood in the liberation of Cuba, the Filipino people expected that under [sub_pronoun1] administration the spirit of cooperation would be maintained and that the work of political emancipation would be complete. Contrary, however, to our expectations, [sub_pronoun1] conduct of government has been characterized by a train of usurpations and arbitrary acts, resulting in the curtailment of our autonomy. the destruction of our constitutional system, and the reversal of America's Philippine policy."
+        
+        " [mc] wonders for a bit and connects the pieces of the puzzle"
 
-            mc "So ganun pala ang nangyari… lahat ng Filipino leaders ay galit kay general Wood sa kadahilanang, naibunyag nya ang mga corruption ng mga filipino leaders habang siya ay namamahala bilang governor-general. Ang corruption na galing sa mga filipino leaders ay isang paghahanda para sa Philippine Independence; pinalalawak nila ang kanilang kapangyarihan upang pagdating ng panahon ang pilipinas ay maging malaya pero sila ang mamamahala dito."
-            
-            "...""After [mc] inner monologue he suddenly gets teleported and while within the time machine rift he realizes:"
+        mc "So ganun pala ang nangyari… lahat ng Filipino leaders ay galit kay general Wood sa kadahilanang, naibunyag nya ang mga corruption ng mga filipino leaders habang siya ay namamahala bilang governor-general. Ang corruption na galing sa mga filipino leaders ay isang paghahanda para sa Philippine Independence; pinalalawak nila ang kanilang kapangyarihan upang pagdating ng panahon ang pilipinas ay maging malaya pero sila ang mamamahala dito."
+        
+        "...""After [mc] inner monologue he suddenly gets teleported and while within the time machine rift he realizes:"
 
-            mc "(Inner monologue) Ngayon ko lang na realize na nasa American Era of Philippine History pala ako…"
+        mc "(Inner monologue) Ngayon ko lang na realize na nasa American Era of Philippine History pala ako…"
 
 
 
