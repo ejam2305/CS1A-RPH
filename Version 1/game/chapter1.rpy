@@ -22,8 +22,6 @@ label chapter_1:
     return
 
 label ch1sub_chapter1:
-    
-    ## Scene 1
 
     call slowTextfade("The Laguna Copperplate Inscription")
 
@@ -54,7 +52,7 @@ label ch1sub_chapter1:
     
     "???" "I am Triton-512, an AI designed to help you on your journey. Please take a look at your left wrist."
 
-    show mc left arm request at left
+    show mc left arm request at left, large
 
     AI "I have been installed in this watch to help you throughout your journey. You can call me Triton."
 
@@ -129,7 +127,7 @@ label ch1sub_chapter1:
 
     mc "It looks like I'm in a university."
 
-    show mc neutral at center
+    show mc neutral at center, large
 
     pause(1)
 
@@ -137,7 +135,7 @@ label ch1sub_chapter1:
 
     hide mc neutral
 
-    show hector request at halfsize:
+    show hector request at small:
         xalign 1.0
         yalign 0.5
     
@@ -153,13 +151,13 @@ label ch1sub_chapter1:
 
     mcInner "I still don't know what's the item that I need to obtain from Hector, but whatever it is I need to get close to him ASAP, so that I can return to my own timeline. "
 
-    ## play footstep sound
+    ## footstep sfx
 
     hide hector request
 
     show bg hallway request with fadetoBlack
 
-    ## play footstep sound
+    ## footstep sfx
 
     show hector request at fadeInSlow, right
 
@@ -185,8 +183,6 @@ label ch1sub_chapter1:
             mc "Maraming salamat sa iyong alok."
 
     hector "Walang anuman. Tumutulong lamang ako sa kapwang Filipino."
-    
-    ## Scene 2
 
     show bg hector house request with fadetoBlack
 
@@ -299,8 +295,6 @@ label ch1sub_chapter1:
 
     hector "Bago ka nga pala lumisan may inihanda akong regalo para sa iyo ikonsidera mo ito bilang isang munting regalo ng pamamaalam."
 
-    # bag.png
-
     mc "MC: Ay nako, sana hindi na po kayo nag abala pa.. Pero thank you sa munting regalo niyo sakin, sa mga ala-ala na inyong ibinigay sakin tiyak na hindi ko malilimutan at salamat sa tulong na inyong binigay."
 
     mc "Once again thank you very much ginoong Hector at ako'y mauuna na hanggang sa muli nating pagkikita."
@@ -388,17 +382,17 @@ label ch1sub_chapter2:
     pause(1)
     hide classmate y request
 
-    ## insert monologue thats not in dialogue file for some reason
-
     pause(2)
 
     show bg black with fadetoWhite
 
     return
 
+
+
 label ch1sub_chapter3:
 
-    call slowTextfade("Antonio Pigafetta")
+    call slowTextfade("Antonio Pigafetta's Voyage Around the World")
 
     show bg beach request with fadetoBlack
 
@@ -420,7 +414,7 @@ label ch1sub_chapter3:
 
     pause(1)
 
-    # show spaniard on screen
+    show spaniard request at center
 
     "???" "What are you doing here" #translate to spanish
 
@@ -440,9 +434,10 @@ label ch1sub_chapter3:
         $ i =  i + 1
     $ i = 0
 
-    show bg storage room request with eyeopen
+    show bg storage room request with eyeopen:
+        blur 0.0
 
-    show mc left arm request at left
+    show mc left arm request at left, large
 
     mc "Why did you even bring me here in the first place?!"
 
@@ -464,8 +459,278 @@ label ch1sub_chapter3:
 
     "Spaniard" "¿Hablas español?"
 
-    "AI(Whispering)" "Translation activated."
+    "AI (Whispering)" "Translation activated."
 
     mc "Sí, sí hablo español."
 
+    "Spaniard" "Has sido capturado por la tripulación directamente bajo la corona española. (You have been captured by the crew directly under the Spanish crown.)"
+
+    "Spaniard" "No debes mentir o arderás en el infierno. (You must not lie or you will burn in hell.)"
+
     "Spaniard" "¿Qué haces aquí cerca del campamento? (What are you doing here near the camp?)"
+
+    menu:
+        mcInner "Ano sasabihin ko dito..."
+
+        "I am just a traveller":
+            mc "¡Soy sólo un viajero! Me acerqué a tu campamento porque vi luz y fuego y quería compañía. (I am just a traveller! I just got close to your camp because I saw light and fire and wanted company.)"
+
+            "Spaniard" "¡Mentiras! No llevas nada, ¿cómo puedes ser un viajero? (Lies! You are carrying nothing, how can you be a traveller.)"
+
+            "Spaniard" "¡Debes ser un enemigo! Te tiramos por la borda por mentirte delante de Dios. (You must be an enemy! We will throw you overboard for lying in front of God.)"
+
+            show spaniard at left, fadeOutSlow
+
+            show bg black with fadetoBlack
+
+            hide spaniard request
+
+            jump ch1sub_chapter3
+
+        "I am a stranded slave":
+            mc "Soy un esclavo abandonado por mis dueños chinos. ¡Por favor ten compasion! (I am a stranded slave left behind by my Chinese owners. Please have mercy!)"
+            
+            mc "Puedo trabajar para usted, fui traductor para mis dueños anteriores. (I can work for you, I was a translator for my previous owners.)"
+
+            "Spaniard" "¿Un esclavo varado que sabe traducir dices? (A stranded slave that knows how to translate you say?)"
+
+            "Spaniard" "Alégrate, nuestra misericordiosa tripulación te acogerá. Recuerda esto, tu vida fue salvada por la tripulación de Magallanes. (Be glad, our merciful crew will take you in. Remember this, your life was saved by the crew of Magellan.)"
+
+        "I am a Chinese merchant":
+            mc "¡Solo soy un comerciante que pasa! Quería vender mis mercancías a vuestra tripulación porque sé que los barcos españoles dan buen dinero. (I am just a merchant passing by! I wanted to sell your crew my wares because I know Spanish ships bring good money.)"
+            
+            "Spaniard" "¡Mentiras! No llevas mercancías, ¿cómo puedes ser comerciante? (Lies! You are carrying no wares, how can you be a merchant.)"
+
+            "Spaniard" "¡Debes ser un enemigo! Te tiramos por la borda por mentirte delante de Dios. (You must be an enemy! We will throw you overboard for lying in front of God.)"
+
+            show spaniard request at left, fadeOutSlow
+
+            show bg black with fadetoBlack
+
+            hide spaniard request
+
+            jump ch1sub_chapter3
+
+    hide spaniard request
+
+    show bg black with fadetoBlack
+
+    show bg storage room request with fadetoBlack
+
+    show slave request at left
+
+    "Slave 1" "Kamusta ka? Nais mo ba maging malaya? (How are you? Do you want to be free?)"
+
+    mc "Oo (Yes)"
+
+    "Slave 1" "Wag mong ibahagi sa mga Kastila ang tungkol sa ating usapan. (Don't tell the Spaniards about our conversation.)"
+
+    hide slave request
+
+    show bg black with fadetoBlack
+
+    show bg storage room request with fadetoBlack
+
+    "Spaniard 1" "¡Los nativos son demasiado vulgares para ser colonizados! ¡Ni siquiera pueden vestirse con ropa! (The natives are too vulgar to be colonized! They can't even dress up in clothes!)"
+
+    "Spaniard 2" "¡Así es! ¡Y su tecnología es demasiado primaria! Realmente están en la era de la oscuridad. (That's right! And their technology is too primal! They are truly in the age of darkness.)"
+
+    mcInner "Hindi ito ang itinuro sa amin sa history class. Wala silang sinabi tungkol sa pag-aalaga ng mga Kastila sa mga katutubo."
+    
+    mcInner "Ang paglalarawan nila sa mga Native Filipinos na 'barbaro' at 'walang kultura' ay biased dahil hindi nila naisip na maintindihan ang pamumuhay ng mga Pilipino sa mga isla."
+
+    pause(1)
+
+    mcInner "Ah! Tama! Naalala ko nga ang libro namin noon sa history class, may nakasulat na 'Journey'. Pero sino nga ba 'yon? Tsaka anong libro nga ba ulit iyon? Bakit 'di ko matandaan?! Nakakainis naman, hindi ko alam kung sino dapat kong kausapin."
+
+    call slowTextfade("In Cebu")
+
+    show spaniard request at right
+
+    "In a village near the beach"
+
+    "Spaniard" "Somos españoles, ¿podemos saber quién es el representante de este pueblo?"
+
+    "Slave 1" "Ang sabi nila ay \"Kame ang mga kastila, maaari ba naming malaman kung sino ang kinatawan ng nayong ito?\""
+
+    "Villager" "Ako po iyon."
+
+    "Spaniard" "¿Sabes que los dioses que adoras no son ciertos? Deberías convertirte al cristianismo."
+
+    "Slave 1" "Alam niyo bang hindi totoo ang mga diyos na sinasamba niyo? Dapat kayo manampalataya sa christianismo."
+
+    "Villager" "Abay sino kayo para sabihan kame kung sino dapat ang aming sinasamba!"
+
+    "Spaniard" "Puede que no sepa tu idioma, pero reconozco a un hereje cuando lo veo. (I may not know your language, but I know a heretic when I see one.)"
+
+    "Spaniard" "Kill the heretics!"
+
+    show spaniard request at right, fadeOutSlow
+
+    show bg black with fadetoBlack
+
+    ## fighting sfx
+
+    mcInner "If this happened in my time, they'd be wanted criminals."
+
+    show bg beach request with fadetoBlack
+
+    show spaniard request at center, fadeInSlow
+
+    "Spaniard 1" "Qué tontos son estos nativos. (Such fools these natives are.)"
+
+    "Spaniard 2" "Ya sabes lo que dicen: \"aquellos que obstinadamente creen en mentiras y engaños seguirán creyéndolo, (You know what they say, “Those who stubbornly believe lies and deceit will continue to do so,)"
+
+    "Spaniard 2" "Incluso bajo la amenaza de la muerte y el sufrimiento eterno en el infierno.\" (even under the threat of death and eternal suffering in hell.)"
+
+    "Spaniard 1" "¿Eh? (Huh?)"
+
+    "Spaniard 2" "No importa. Vámonos de aquí. (Never mind. Let us get out of here.)"
+
+    "Spaniard 1" "Ven aquí, nos vamos. No intentes ser inteligente con nosotros, (Come here, we are leaving. Don't try to be smart with us,)"
+
+    "Spaniard 1" "Porque si lo haces, haremos lo mismo que les hicimos a estos bárbaros de aquí. ¿Comprendido? (because if you do, we will do to you what we did to these barbarians here. Understood?)"
+
+    mc "S-Sí… (O-Okay…)"
+
+    hide spaniard request
+
+    mcInner "We were never told in history class that the Spanish burned down villages because of their refusal to convert. I wonder… the history I have learned is truly biased against my ancestors!"
+    
+    mcInner "Nothing was ever mentioned, heck, nothing was even referenced about such atrocities as the one I have just witnessed. It really makes me wonder who actually is responsible for writing history in such a way that travesties like these are forgotten?"
+
+    mcInner "The people that have committed the atrocity? The Americans who came in after them? Or was it written by the very people who descended from the very people that the Spanish unjustly and cruelly treated?"
+
+    AI "So, what are your feelings about history being warped by those who wrote them?"
+
+    menu:
+        mcInner "..."
+
+        "It's wrong!":
+            mc "It's wrong!"
+
+        "It's not wrong...":
+            mc "It's not wrong but..."
+
+    AI "In any case, this is not why you are here. You are here to repair me so you can return from whence you came. You are not here to correct the wrongs of the past."
+
+    mc "And if I want to correct history?"
+
+    AI "You cannot. It is an unspoken rule of time travel that the traveler must not meddle with what has already taken place. Doing so can cause complications."
+
+    show bg ship request with fadetoBlack
+
+    show magellan request at center, fadeInSlow
+
+    "Spanish Lieutenant" "Como habrás notado, nos estamos preparando para una batalla. (As you may have noticed, we are preparing for a battle.)"
+
+    "Spanish Lieutenant" "Nuestro enemigo es un obstinado bárbaro de Mactán y su tribu de salvajes. (Our enemy is a stubborn barbarian from Mactan and his cohort tribe of savages.)"
+
+    "Spanish Lieutenant" "Se ha negado tontamente a obedecernos a nosotros y a nuestros aliados, (He has foolishly refused to obey us and our Allies,)" 
+    
+    "Spanish Lieutenant" "E iremos a esa isla para darles una lección a él y a sus bárbaros incivilizados. (And we will go over to that island to teach him and his uncivilized barbarians a lesson.)"
+
+    "Slave 1 (Shouting)" "Baliw ba kayo?"
+
+    "Slave 2" "Hindi tayo magkakaroon ng pagkakataon laban sa kanya at sa kanyang mga tauhan sa isang labanan!"
+
+    "Slave 3" "Gusto nilang kalabanin natin siya at ang tribo niya?! Ito ay mapangahas! Papatayin nila tayong lahat!"
+
+    "Slave 4" "Kung ako ay tanga, masasabi kong magandang plano ang pakikipaglaban sa kanilang tribo, ngunit hindi ako ganoong katanga! Siya at ang kanyang mga tauhan ay mahusay na mandirigma! Baka patay na tayo bago pa natin siya masulyapan!"
+
+    # gunshot sfx
+
+    show pigafetta request at left, fadeInSlow
+
+    "Spanish Lieutenant" "¡Qué cobardes sois! ¿Qué hay que temer frente a un grupo de salvajes incivilizados y poco inteligentes? (What cowards you are! What is there to fear in the face of a group of uncivilized and unintelligent savages?)"
+
+    hide magellan request
+
+    hide pigafetta request
+
+    mc "!"
+
+    mcInner "We are on our way to what will become the Battle of Mactan. Lapu-Lapu and his men will force the Spaniards to retreat, and Magellan would meet his end as a result of a poisoned arrow. Should I warn him or should I just keep my thoughts to myself?"
+
+    menu:
+        mcInner "Should I warn Magellan?"
+
+        "Yes":
+            mc "..."
+
+        "No":
+            mc "..."
+
+    show bg storage room request with fadetoBlack
+
+    "Slave 2" "Magkakaroon ba tayo ng pagkakataon laban sa kanya? Kung paniniwalaan ang mga kuwento, siya at ang kanyang mga tauhan ay magaling sa paghahanap at pagsasamantala ng kahinaan sa hanay ng kanilang mga kalaban!"
+
+    "Slave 3" "Ewan ko sa inyo, pero mas gugustuhin ko pang tumakas dito kaysa ilaban si Lapu-Lapu at ang kanyang mga tauhan."
+
+    "Slave 2" "Baka pwede tayong makiusap sa kanila–{nw}"
+
+    "Slave 4" "Ang pagsusumamo ay hindi makabubuti sa atin. Kung mayroon man, ang tanging kalayaan na makukuha natin ay kung nagpasya silang patayin tayo, at sa gayon ay mapalaya ang ating mga kaluluwa."
+
+    "Slave 5" "Maaaring magandang ideya ang pag-aalsa. Sakupin natin ang barkong ito at–"
+
+    "Slave 1" "Napaka-walang muwang talaga kayong mga tao. Sa tingin niyo ba ay papayag ang mga Kastila sa anumang hilingin natin sa kanila?! Mapapatay nila tayo kung gusto nila!"
+
+    "Slave 2" "Anong ibig mong sabihin?"
+
+    "Slave 1" "Walang sinuman sa inyo ang may makatwirang mungkahi, at kung tayo’y susunod sa mga plano na iyong iminungkahi, tayo ay masentensiyahan ng kamatayan dahil sa pagtataksil, kaduwagan o pagsuway, marahil lahat ng ito!"
+
+    "Slave 1" "Subukan na lang natin mabuhay."
+
+    mc "..."
+
+    mcInner "How would things turn out if Magellan survives the battle? I wonder..."
+
+    show bg ship request with fadetoBlack
+
+    show magellan request at center, fadeInSlow
+
+    mc "Señor, tengo algo que decirle... (Sir, I have something to tell you...)"
+
+    mc "Este jefe y sus hombres son guerreros expertos que se especializan en explotar las debilidades de sus enemigos. (This chief and his men are expert warriors who specialize in exploiting their enemies' weaknesses.)"
+
+    mc "Ten mucho cuidado si decides luchar contra ellos. (Be really careful if you do decide to fight them.)"
+
+    "Magellan" "..."
+
+    "Magellan" "WAHAHAHA{nw}"
+
+    "Magellan" "Te aseguro, muchacho, que estamos muy por delante de ellos en tecnología y tácticas. (I assure you, boy, that we are way ahead of them in technology and tactics.)"
+
+    "Magellan" "Sus lanzas y flechas no son rival para nuestra armadura, y nuestras armas pueden penetrar su armadura de madera fácilmente. (Their spears and arrows are no match for our armor, and our guns can penetrate their wooden armor easily.)"
+
+    "Magellan" "No hay de qué preocuparse, los aplastaremos. (There is no need to worry, we will crush them.)"
+
+    show magellan request at center, fadeOutSlow
+
+    show bg beach request with fadetoBlack
+
+    hide magellan request
+
+    AI "Are you still there?"
+
+    mc "Yes."
+
+    AI "What are your thoughts regarding this part of history?"
+
+    mc "Here we are. Two sides. Magellan believes his weaponry and tactics are sufficient enough to defeat Lapu-Lapu and his men, accompanying them is Antonio Pigafetta, who is currently writing an account of their voyage, the first around-the-world voyage."
+
+    mc "They will soon find out that their weapons and tactics are insufficient against Lapu-Lapu's tactics and sheer numbers, despite their biased preconceptions that the natives are uneducated, uncivilized and are technologically stagnated."
+
+    mc "But what is confusing is that at some point, objective oversight gave way to emotions and confusion in the heat of battle."
+    
+    mc "For one, it's not even known as to whether Lapu-Lapu actually struck the blow that killed Magellan, or whether it was a lucky potshot from one of his men."
+
+    mc "Heck, was Lapu-Lapu actually leading his men or was he on the sidelines? Recorded history tells us this much, but did events really pan out the way they did according to every account of this historical event? Being here only raises more questions…"
+
+    AI "Would you like to see what happens?"
+
+    mc "Would anyone even believe me if I recounted what I saw here? I'd rather not witness it at all."
+
+    show bg black with fadetoWhite
+
+    return

@@ -30,8 +30,11 @@ transform fadeOutSlow:      # Usage Example
     easein 1.0 alpha 0.0    # pause(1)
                             # hide [image]
 
-transform halfsize:
+transform small:
     zoom 0.75
+
+transform large:
+    zoom 1.25
 
 label slowTextfade(info):                   # Usage Example
     centered "{cps=7.5}{b}[info]{nw=2}"     # call slowTextfade("Enter Text Here")
@@ -73,8 +76,7 @@ label start:
                     mcName = "Hans"
                 mcName = mcName.capitalize()
 
-        "No":
-            "???" "That's too bad."
+        "Hans...":
             python:
                 mcName = "Hans"
 
