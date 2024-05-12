@@ -5,9 +5,21 @@
 
 # Character declaration
 
-define mc = Character("[mcName]", color="#ffc8c8", voice_tag="[mcGender]")
-define mcInner = Character("[mcName]", color="#b47e7e", voice_tag="[mcGender]")
-define AI = Character("AI", color="#c8c8ff", voice_tag="ai")
+define mc = Character("[mcName]", color="#ff5252", voice_tag="mc.voice")
+default mcGender = "mcFemale"
+
+init python:
+    def genderVoice(id):
+        global mcGender
+        voice_tag = _voice.tag
+        if voice_tag == "mc.voice":
+            return "voice/{}/{}.mp3".format(mcGender, id)
+        return "voice/{}.mp3".format(id)
+        
+    config.auto_voice = genderVoice
+
+define mcInner = Character("[mcName] (Inner)", color="#573939", voice_tag="mc.voice")
+define AI = Character("AI", color="#6565ff", voice_tag="ai")
 
 default pronoun = ""
 default sub_pronoun1 = ""
@@ -23,12 +35,13 @@ define eyeclose = ImageDissolve("eye.png", 1.0, 16, reverse=True)
 
 transform fadeInSlow:       # Usage Example
     alpha 0.0               # show [image] at fadeInSlow
-    easein 1.0 alpha 1.0
+    easein 1.0 alpha 10.0
+    alpha 10.0
 
 transform fadeOutSlow:      # Usage Example
-    alpha 1.0               # show [image] at fadeOutSlow
+    alpha 10.0               # show [image] at fadeOutSlow
     easein 1.0 alpha 0.0    # pause(1)
-                            # hide [image]
+    alpha 0.0
 
 transform small:
     zoom 0.75
@@ -44,20 +57,19 @@ label slowTextfade(info):                   # Usage Example
     hide text1
     return
 
-
-
 # Preferences declaration
 
-default preferences.text_cps = 20
-
-
+default preferences.text_cps = 35
 
 label start:
+
     call slowTextfade("Lorem Ipsum")
 
     call slowTextfade("Dolor Sit Amet")
 
-    pause(2)
+    pause(1)
+
+    play music "Once Upon a Time.mp3" volume 0.1 fadein 2.0 fadeout 2.0
 
     scene bg gray with fadetoBlack
 
@@ -80,16 +92,23 @@ label start:
             python:
                 mcName = "Hans"
 
-
     pause(1)
 
+    show mc speaking 2 at left, large
+
     mc "Wait, who am I talking to right now?"
+
+    show mc thinking 1
 
     "???" "You'll find out in due time."
 
     "???" "For now, focus on answering my questions."
 
+    show mc speaking 2
+
     mc "That doesn't answer my question. Where am I?"
+
+    show mc thinking 1
 
     $ first = True
     call ask_gender
@@ -103,8 +122,6 @@ label start:
     "???" "I wish you good luck in your journey.{nw=1}"
 
     scene bg black with fadetoBlack
-
-    pause(1)
 
     call skip
 
@@ -121,7 +138,9 @@ label start:
     return
 
 label ask_gender:
+
     "???" "Do you remember your gender?"
+
     menu:
         "Respond with?"
 
@@ -147,7 +166,9 @@ label ask_gender:
     
 #Debugging purposes
 label skip:
+
     menu:
+
         "Choose Chapter"
 
         "Chapter 1":
@@ -164,4 +185,5 @@ label skip:
 
         "Chapter 5":
             call chapter_5
+
     return

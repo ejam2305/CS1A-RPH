@@ -13,19 +13,28 @@ define rizal = Character("Dr. Jose Rizal", color="#95fff3", voice_tag="deMorga")
     #subChapt 3 Characters
 
 define figueroa = Character("Captain Estevan Figueroa", color="#fd6e6e", voice_tag= "figueroa")
+
+
 # The game starts here.
 
 label chapter_2:
-    "Chapter 2 Start"
+    call slowTextfade("Chapter 2 Start")
 
-    "Spanish History in the Philippines"
+    call slowTextfade("Spanish History in the Philippines")
 
     #Juan de Plasencia Customs of the Tagalog
     label subChapter_1:
 
+        #bg town or city
         # Scene 1
 
-        "..." "After declining the machine’s offer to see what happened to Magellan the [mc] gets teleported to a town in Manila during the early Spanish colonization. He roamed around observing the place and the traditions present during the time."
+        play music "/music/bg_ph_street.mp3" fadein 0.5 volume 0.2
+        scene bg town-square
+        with fade
+
+        "..." "After declining the machine’s offer to see what happened to Magellan [mc] gets teleported to a town in Manila during the early Spanish colonization. He roamed around observing the place and the traditions present during the time."
+
+        show mc default
 
         mc "The architecture, the atmosphere... It's like stepping into a history book."
 
@@ -33,10 +42,13 @@ label chapter_2:
         
         "..." "As he wanders, he notices a man standing near the town square, his gaze fixed intently on the bustling activity around him."
         
+        hide mc
         "..." "Intrigued by the man's focused observation, [mc] decides to approach and strike up a conversation."
 
         mc "Hi there. I couldn’t help but notice you observing the people around here. Are you studying the people here?"
 
+        show mc speaking
+        show plasencia default at right
         juanDePlasencia "(Looking up with a surprised, but friendly smile) Oh, hello! Yes, I am, in a way. I'm Juan De Plascensia, a friar. And you are?"
 
         "[mc] (Inner Voice)" "That name sounds familiar, but I can't quite place it. Where have I heard it before?"
@@ -70,11 +82,20 @@ label chapter_2:
         juanDePlasencia "Indeed, and let us not forget those who dwell at the very bottom of this hierarchy—the slaves, the aliping guiguilir, condemned to a life of servitude and hardship."
 
         mc "As we witness this scene unfold before us, it shows the injustices of the Filipino experience."
+        hide mc
+        hide plasencia
+        pause (3)
+
+        scene bg town-square
+        with fade
 
         #Scene 2
-    
+
+
+        show plsencia default at left
         juanDePlasencia "As we walk through these streets, let me share another fascinating aspect of The town. Disputes, my friend, were settled with a certain degree of communal wisdom. "
-    
+
+        show mc default at right
         mc "How so? "
 
         juanDePlasencia "Well, imagine this: when conflicts arose, it wasn't just left to the whims of the powerful."
@@ -157,8 +178,14 @@ label chapter_2:
 
         mc "Indeed, father Plasencia. Until then, safe travels and may our paths cross again in the future."
 
+        hide mc
+        hide plasencia
         #Scene 5
 
+        scene bg town-square
+        with fade
+
+        show mc thinking2
         mc "Father Plasencia... where have I heard that name before? Ah, yes, in my history class. He's the one who wrote that narrative on the customs of Tagalog."
 
         mc " It's surreal to think that I've just met someone whose work I've studied. His insights have been invaluable in understanding some complexities of Tagalog society. "
@@ -178,30 +205,37 @@ label chapter_2:
         "..." "[mc] starts to dissapear as he gets teleported"
         
         "..." "To be continued..."
-
         pause(2)
 
         call sub_chapter2
 
-    label sub_chapter2:
+        label sub_chapter2:
         #Antonio De Morga Sucesos de Las Islas
-
+        
         #Scene 1 (Library)
+
+        play music "music/bg_library.mp3" fadein 0.5 volume 0.2
+        scene bg library
+        with fade
 
         "..." "([mc] is suddenly teleported to a library)"
 
+        show mc default
         mc "Uhh.. What is this place? Hmm... I'm seeing lots of books here. I see, I'm in the library now."
 
+        show librarian at right
         "..." "(A librarian walks up to him)"
 
         librarian "Hey.. what are you doing here?"
 
+        show mc realization
         mc "Ohh" 
         mc "I.." 
         mc "Uhh..."
 
         librarian "Why are you here?"
 
+        show mc speaking2
         mc "It's because.. I.. I came to.."
 
         librarian "Why aren't you answering my questions right away? Is there a problem here?"
@@ -212,7 +246,9 @@ label chapter_2:
 
         mc "Well, I.. uh.."
 
-        "..." "(Just when the MC is about to explain to the librarian, someone interrupts the two.. then Jose Rizal explains to the librarian that the MC is his friend which makes the librarian leave him.)"
+        "..." "(Just when [mc] is about to explain to the librarian, someone interrupts the two.. then Jose Rizal explains to the librarian that [mc] is his friend which makes the librarian leave him.)"
+        hide librarian
+        show rizal default at right
 
         rizal "Uhhm, so sorry for interrupting. What did the librarian say to you?"
 
@@ -222,14 +258,21 @@ label chapter_2:
 
         mc "Sure, I'm pleased to talk with you."
 
-        "..." "(Jose Rizal brings the [mc] to a table in the library and starts a conversation with him)"
+        "..." "(Jose Rizal brings [mc] to a table in the library and starts a conversation with him)"
 
+        scene bg library
+        with fade
+
+        show rizal default
         rizal "Well.. I'm going to introduce myself first. I'm Jose Protacio Rizal Mercado Alonzo y Realonda, Jose Rizal for short and my nickname is Pepe."
 
+        show mc realization at left
         rizal "What brings my fellow Filipino here in london? Is there anything you need?"
 
+        show mc speaking2 at left
         mc "Well, uh.. I'm actually looking for a book about Philippine History. I am curious and want to know about it."
 
+        show mc default at left
         rizal "Oh wow, I see.."
         rizal " I'm happy to hear that you are interested in Philippine History."
         rizal "Just letting you know that I found an interesting book that was published in the 1600's about the Philippines."
@@ -240,6 +283,7 @@ label chapter_2:
         rizal "Hmm.. sure. This book is called \"Sucesos de las Islas\". It's about the documentation of events during the Spanish colonial period of the Philippines."
 
         mc "That's really interesting, but I have a question."
+
 
         rizal "Go ahead!"
 
@@ -259,14 +303,14 @@ label chapter_2:
         mc "..."
 
         mc " I'm not really sure if I-"
-
+        
         rizal "Hear me out.. I will give this book to you.. only if you help me."
 
         mc "..."
 
         mc "Ok.. ok.. I will help you out."
 
-        "..." "Rizal is happy and is looking forward to be with the MC in pointing out the biases"
+        "..." "Rizal is happy and is looking forward to be with [mc] in pointing out the biases"
 
         rizal "Fantastic. As promised, here's the book. You have to read it because it's interesting."
 
@@ -277,9 +321,11 @@ label chapter_2:
         mc "Pleasure to meet you too."
 
         "..." "(Rizal smiles and leaves the library)"
+        hide rizal
+        "..." "([mc] started to read the book that Rizal gave him)"
 
-        "..." "(The [mc] started to read the book that Rizal gave him)"
-
+        hide mc
+        show mc thinking2 
         "[mc] (Inner Voice)" "Wow, this book is truly impressive. 'Morga wanted to preserve the history of the Philippines and Spain, that explains why he published the book."
 
         "[mc] (Inner Voice)" "Another thing is that Rizal made his own versions with annotations."
@@ -288,55 +334,65 @@ label chapter_2:
 
         "[mc] (Inner Voice)" "Then, the country was far behind any other countries and the filipinos’ idolized the lifestyle of the colonization.'"
 
-        "..." "(After further understanding of the book, The [mc] starts to write down his thoughts on a piece of paper and leave it inside the book for rizal.)"
+        "..." "(After further understanding of the book, [mc] starts to write down his thoughts on a piece of paper and leave it inside the book for rizal.)"
 
         "..." "([mc] fades away as [pronoun] begins to teleport)"
-
         "..." "(To be Continued...)"
 
         pause (2)
 
         call sub_chapter3
     
-    label sub_chapter3:
+        label sub_chapter3:
 
         #Francisco de Sande's Letter to Estevan Rodriguez de Figueroa
 
         #Scene 1 (Spanish Base, unfamiliar Room)
-
         "..." "([mc] suddenly got teleported in a Spanish base, [pronoun] look around to see where [pronoun] was)"
 
+        scene bg militarybase-storageroom
+        with fade
+        play music "music/bg_military_hallway.mp3" fadein 0.5 volume 0.5
+
+        show mc realization
         mc "Where the...?"
         mc "Where am I this time?"
 
+        show mc thinking
         "..." "([pronoun] moves cautiously, [sub_pronoun1] footsteps echoing slightly as [pronoun] surveys [sub_pronoun1] surroundings. [sub_pronoun1] gaze lands on a window, and [pronoun] tiptoes over, peering out cautiously.)"
-        "..." "([sub_pronoun] eyes widen at the sight of countless soldiers milling about in a large courtyard.)"
+        "..." "([sub_pronoun1] eyes widen at the sight of countless soldiers milling about in a large courtyard.)"
         
         "..." "([mc] turns around, [sub_pronoun1] eyes scanning the room again. This time, [pronoun] notices an old wooden chest in the corner. [pronoun] rushes over and flings it open, revealing an assortment of military clothes.)"
         "..." "([pronoun] quickly changes out of [sub_pronoun1] clothes and into the soldier’s uniform, so [pronoun] could try to blend in with the soldiers.)"
 
         mc "Alright, think... act natural."
 
+        show mc disguise
+        scene bg militarybase-hallway
+        with fade
+
         "..." "(Now dressed in a soldier's uniform, [mc] confidently walks through the bustling hallway. As [pronoun] blends into the flow, a stern-faced captain steps in front of [sub_pronoun2], blocking his path.)"
-
+        show mc disguise
         "..." "(The captain scrutinizes [mc] for a moment before speaking in a commanding tone.)"
-
+        hide mc
+        show figueroa default
+        show figueroa default at left
         figueroa "You there, soldier! I don't think I've seen you before. Which unit are you from?"
-
+        show mc disguise3 at right
         mc "..."
         mc "Uh, I just transferred, sir. Still getting my bearings."
 
         figueroa "Transferred, hmm? Good timing. I need an extra pair of hands. Follow me."
 
-        "..." "Captain Figueroa turns briskly, clearly expecting [mc] to follow without question."
+        "..." "(Captain Figueroa turns briskly, clearly expecting [mc] to follow without question.)"
 
         "..." "[mc] hesitates only a moment before falling in step behind the captain, trying to keep [sub_pronoun1] expression neutral and focused."
+        show mc disguise2 at right
+        "[mc] (Speaking softly to [sub_pronoun2]self)" "Is he Captain Figueroa? It seems I got teleported to another historical event."
 
-        mc "Is he Captain Figueroa? It seems I got teleported to another historical event."
-
-        "..." "Captain Figueroa leads [mc] through winding corridors to a set of large, ornate doors, which open into a spacious, well-appointed set of quarters."
-        "..." " [sub_pronoun1] mind alerts for any details that might help [sub_pronoun2] understand where [pronoun] is or what is expected of [sub_pronoun2]."
-
+        "..." "(Captain Figueroa leads [mc] through winding corridors to a set of large, ornate doors, which open into a spacious, well-appointed set of quarters.)"
+        "..." " ([sub_pronoun1] mind alerts for any details that might help [sub_pronoun2] understand where [pronoun] is or what is expected of [sub_pronoun2].)"
+      
         figueroa " Stand over there and wait for my instructions. (Points to a corner of the room)"
 
         mc "Sir, Yes Sir!"
@@ -345,32 +401,36 @@ label chapter_2:
 
         "[figueroa] (in an authoritative tone)" "You there, follow me. I need someone to assist me with these documents."
 
-        "..." "[mc] obediently trails behind Figueroa, entering the captain's quarters where [pronoun] is instructed to standby in a corner."
+        scene bg figueroa-office
+        with fade
+        
+        queue music "music/bg_military_office.mp3" fadein 0.5 volume 0.5 
+        "..." "([mc] obediently trails behind Figueroa, entering the captain's quarters where [pronoun] is instructed to standby in a corner.)"
         "..." "(Figueroa retrieves a letter from his uniform's inner pocket, unfolding it with a serious expression)"
         
+        show figueroa default
         "[figueroa] (Reading Aloud)" "\"To Estevan Rodriguez de Figueroa, from Francisco de Sande, Governor of the Philippines...\""
 
         "..." "(As Figueroa reads, [mc]'s mind races, recalling the significance of Francisco de Sande's letter from their history lessons.)"
 
+        show mc disguise at left
         "[mc] (whispering to [sub_pronoun2]self)" " Francisco de Sande... his correspondence could hold crucial information about the Spanish rule in the Philippines."
 
         "..." "(Listening intently, [mc] pieces together the implications of de Sande's words, recognizing the underlying motives and power dynamics at play in Spanish colonial history.)"
 
         "[mc] (Inner Voice)" "De Sande's letter reveals the complex web of alliances and conflicts within Spanish society, and the challenges they faced in maintaining control over the Philippine archipelago."
 
-        "..." "(As Figueroa finishes reading, the MC realizes the weight of the information they've stumbled upon, now understanding the true significance of their unexpected journey into Spanish history in the Philippines.)"
+        "..." "(As Figueroa finishes reading, [mc] realizes the weight of the information they've stumbled upon, now understanding the true significance of their unexpected journey into Spanish history in the Philippines.)"
 
         figueroa "That's all for now, you're dismissed."
-
-        mc "(Salutes then exits thee room)"
+        hide figueroa
+        mc "(Salutes then exits the room)"
+        hide mc
 
         "..." "(right after [mc] exits the room [pronoun] dissapears in thin air)"
-
         "..." "To be Continued..."
-
+        stop music
         #End Chapter 2
-
-        call chapter_3
+        pause (2)
     # This ends the game.
-
-    return
+        return
