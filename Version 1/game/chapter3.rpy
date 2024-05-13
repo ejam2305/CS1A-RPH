@@ -139,7 +139,7 @@ label textEvent4:
     cx "Siyang Tunay! Ang malayang Ilocos ay isang kinabukasan may saysay na ipaglaban."
 
     ds "At yan ang kinabukasan na nais nating makamit!."
-    hide crowd
+    hide speaker
     "..." "(One evening, a messenger arrives at Diego Silang's camp, bearing a sealed letter with the Bishop's mark.)"
 
     "[ds]" "(Breaks the seal and scans the contents) Hmm... nakapukaw ng pansin. Mukhang nais ng Obispo(bishop) na talakayin ang mga bagong pangyayaring ito.."
@@ -148,7 +148,7 @@ label textEvent4:
     cx "Ano ang ibig niyang iparating diego?"
 
     ds "Tinatanggihan niya ang aking mga kahilingan para sa awtonomiya ng Ilocano. Iginiit niya na tumindig tayo at sumuko sa pamumuno ng Espanyol."
-    hide crowd
+    hide speaker
     show mc thinking at right
     with dissolve
 
@@ -194,7 +194,8 @@ label textEvent4:
 
     hide speaker
 
-    hide speaker as speaker2
+    hide speaker 
+    hide diego 
     "..." "([mc] and Character X leave Diego Silang's quarters)"
 
     "..." "(As they embark on their journey to Manila, a tense silence hangs between them. [mc] steals glances at the letter, their mind filled with doubt.)"

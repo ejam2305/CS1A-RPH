@@ -29,8 +29,6 @@ label chapter_2:
     #Juan de Plasencia Customs of the Tagalog
 
 
-
-
 label subChapter_1:
 
     #bg town or city
