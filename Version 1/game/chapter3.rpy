@@ -17,9 +17,8 @@ label chapter_3:
     play music "/music/bg_chapter3.mp3" fadein 0.5 volume 0.2
     label subchapter1_3:
     
-    scene bg street request
+    scene bg ph-street
     with fade
-
 
     "..." "(MC teleports near Vigan City, October 1762 where Diego Silang is giving a Speech.)"
     
@@ -65,11 +64,10 @@ label chapter_3:
             jump textEvent4
     
     label textEvent4:
-        scene bg prison request
+        scene bg prison
+        with fade
 
     "..." "(Loud banging and yelling can be heard in the dark, small room. The MC sits on the cold ground, puzzled.)"
-    
-    scene bg cellar request
 
     show mc prison
 
@@ -92,7 +90,8 @@ label chapter_3:
 
     "..." "([mc], still fresh from his arrest, emerges from the prison with a group of cheering Ilocano rebels.)"
     
-    scene bg street request
+    scene bg cellar
+    with fade
     "Ilocano Rebel" "Salamat kay Diego Silang, malayang tao ka! Ang mga asong Espanyol ay pinalayas na!"
     
     show mc thinking2
