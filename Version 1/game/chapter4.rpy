@@ -169,7 +169,7 @@ label chapter_4:
     CIAExecutive "Gentlemen, we are gathered today to discuss a matter of national security."
     CIAExecutive "The spread of communism in Southeast Asia, particularly in the Philippines, poses a significant threat to American interests."
     CIAExecutive "To that end, we've compiled a report - CIA Memorandum 296 - detailing the current situation in the Philippines. "
-    show mc speaking2 at right
+    show mc suit at right
     mc "Nagsabi siya tungkol sa kumonismo? Kasabit ata ang Soviet Union dito. Pero saang bandang era kaya ako napadpad?"
 
     CIAExecutive "The Philippines, currently under President Quirino's administration, is plagued by corruption, political instability, and economic decline."
@@ -194,7 +194,9 @@ label chapter_4:
 
     mc "(Realizes) Nasa panahon pala ako ng Cold War, pagkatapos ng Ikalawang Digmaang Pandaigdig. Medyo intense pa ang issue nito."
 
-    CIAExecutive "The Huks were originally anti-Japanese militants who later embraced communism. They're a rapidly growing guerilla force, well-equipped and supported by sympathetic villagers. Despite having better weapons, the Philippine military lacks strong leadership and motivation, making them ineffective against the Huks."
+    CIAExecutive "The Huks were originally anti-Japanese militants who later embraced communism." 
+    CIAExecutive "They're a rapidly growing guerilla force, well-equipped and supported by sympathetic villagers."
+    CIAExecutive "Despite having better weapons, the Philippine military lacks strong leadership and motivation, making them ineffective against the Huks."
     
     mc "matagal na nakabaon ang korapsyon sa Pilipinas. Yan ay sanhi ng maraming problemang nangyari dito sa bansang ito."
 
