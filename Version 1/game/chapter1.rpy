@@ -26,24 +26,24 @@ label ch1sub_chapter1:
 
     call slowTextfade("The Laguna Copperplate Inscription")
 
-    play music "Calm 2.mp3" volume 0.3 fadein 2.0 fadeout 2.0
+    play music "Stay the Course.mp3" volume 0.3 fadein 1.0 fadeout 1.0
 
     $ i = 0
     while i < 2:
-        show bg campus dawn request with eyeopen:
+        show bg campus dawn with eyeopen:
+            matrixcolor ContrastMatrix(2.0 - i)
             blur 5.0
-        pause(1)
+        pause(2 - i)
         show bg black with eyeclose
-        pause(1)
         $ i =  i + 1
     $ i = 0
-    show bg campus dawn request with eyeopen:
-        blur 5.0
-        easein 2.0 blur 0.0
-        easein 1.0 blur 3.0
-        easein 1.0 blur 0.0
+    show bg campus dawn with eyeopen:
+        matrixcolor ContrastMatrix(1.0)
+        blur 0.0
 
-    show mc thinking 1 at left, fadeInSlow
+    play sound "<from 0 to 8>Clock.mp3"
+
+    show mc thinking 1 at left, large, fadeInSlow
 
     pause(1)
 
@@ -59,15 +59,17 @@ label ch1sub_chapter1:
 
     "???" "Hello, MC."
 
+    show mc thinking 1 at flipOn
+
     mcInner "Huh?"
     
     "???" "I am Triton-512, an AI designed to help you on your journey. Please take a look at your left wrist."
 
-    show mc left arm 1
+    show mc left arm 1 at flipOff
 
     AI "I have been installed in this watch to help you throughout your journey. You can call me Triton."
 
-    show bg campus dawn request:
+    show bg campus dawn :
             blur 0.0
             easein 1.0 blur 10.0
     
@@ -75,8 +77,8 @@ label ch1sub_chapter1:
     
     mcInner "..."
     
-    show bg campus dawn request:
-        blur 5.0
+    show bg campus dawn :
+        blur 10.0
         easein 1.0 blur 0.0
     
     AI "How much do you remember?"    
@@ -119,11 +121,11 @@ label ch1sub_chapter1:
 
     AI "It may be a physical object or it may be an analysis of historical accounts."
 
-    mc "That's pretty vague.\nIs there anything more I should know?"
+    mc "That's pretty vague. Is there anything more I should know?"
 
     AI "The last thing I can tell you is that the timeline you have been transported to is related to the history of the Philippines."
 
-    play sound "<from 0 to 1.5>Watch Off.mp3" volume 0.25 fadeout 1.0
+    play sound "<from 0.5 to 1.5>Watch Off.mp3" volume 0.25 fadeout 1.0
 
     AI "And-{nw}"
 
@@ -137,7 +139,7 @@ label ch1sub_chapter1:
 
     pause(1)
 
-    show mc thinking 1 at center
+    show mc thinking 1 at center, flipOn
 
     play sound "Footstep Concrete Slowed.mp3" volume 0.5
 
@@ -147,17 +149,26 @@ label ch1sub_chapter1:
 
     pause(1)
 
-    mc "And my clothes look familiar but my memories are still foggy"
+    mc "And my clothes look familiar but my memories are still foggy."
+
+    pause(1)
 
     stop sound
 
-    show mc realization 1
+    show mc realization 1 at left
 
-    show hector request at right
+    show hector at right, flipOn:
+        matrixcolor BrightnessMatrix(-0.7)
     
     mcInner "SHEESH!! Isn't that Hector? Hector Santos?!! The one responsible for the creation of Laguna Copperplate Inscription?"
     
+    show mc thinking 2
+
+    hide hector with dissolve
+
     mcInner "I still remember him from one of our lessons in History. What is he doing here?"
+
+    show mc thinking 3
 
     mcInner "Since I saw Hector, doesn't it mean that I'm in the late 20th century? And this university..."
 
@@ -169,31 +180,28 @@ label ch1sub_chapter1:
 
     play sound "<from 0.0 to 3.0>Footstep Concrete.mp3" volume 0.25 fadeout 1.0
 
-    show hector request at fadeOutSlow
-
-    show mc realization 1 at fadeOutSlow
+    hide mc with dissolve
 
     stop music
 
     pause(1)
 
 
-    scene bg hallway request with fadetoBlack
+    scene bg hallway with fadetoBlack
 
 
-    show mc neutral 1 at left, fadeInSlow
+    play music "SCP-x6x.mp3" volume 0.3 fadein 1.0 fadeout 1.0
 
-    show hector request at right, fadeInSlow
+    show mc neutral 1 at left, large, fadeInSlow:
+        xzoom -1
 
-    pause(0.5)
-
-    show mc speaking 1
+    show hector at right, large, fadeInSlow
 
     mc "Excuse me po, pwede po ba akong magtanong? I'm new po kasi sa bayang ito, at wala po akong matutuluyan right now."
 
-    mc "Can you help me ba? Kahit pansamantala lang po."
+    show mc speaking 1
 
-    show mc neutral 1
+    mc "Can you help me ba? Kahit pansamantala lang po."
 
     hector "Anong bang lengguwahe ang iyong ginagamit, mahirap intindihin ang iyong mga sinasabi." 
 
@@ -203,52 +211,160 @@ label ch1sub_chapter1:
 
     hector "Kung nais mo ay maaaring doon ka muna manatili."
 
-    show mc speaking 1
+    show mc thinking 3
 
     menu:
         mcInner "..."
 
-        "Maraming salamat sa iyong pag-unawa.":
+        "Thank you for your understanding.":
 
-            mc "Maraming salamat sa iyong pag-unawa."
+            show mc speaking 1
 
-        "Maraming salamat sa iyong alok.":
-            mc "Maraming salamat sa iyong alok."
+            mc "Thank you for your understanding."
+
+        "Maraming salamat sa iyong alok but...":
+
+            show mc speaking 1
+
+            mc "Maraming salamat sa iyong alok but on naalala ko na meron na pala akong matitirhan kasama ng kaibigan ko sa Ateneo."
+
+            show mc neutral 1
+
+            hector "Ahh, ganoon ba? Ano pala ang pangalan ng iyong kaibigan? Tutulungan kitang hanapin siya."
+
+            show mc realization 1
+
+            mcInner "..."
+
+            show mc speaking 1
+
+            mc "Uhhhh, kaibigan ko po si Eliezer Villa."
+
+            show mc neutral 1
+            
+            hector "Hmm. Wala akong kilalang Eliezer. Tara, dadalhin kita sa faculty. Makakatulong sa iyo maghanap ang aming mga maestro."
+
+            show mc speaking 1
+
+            mc "Ahh... You don't have to do that po..."
+
+            show mc thinking 1
+
+            hector "..."
+
+            hector "Paumanhin, ngunit kailangan mo akong samahan sa faculty. Bawal ang mga tagalabas sa loob ng Unibersidad. Kung ayaw mo parin sumama ay mapipilitan akong tumawag ng guwardiya."
+
+            show mc realization 1
+
+            hide hector with dissolve
+
+            show mc thinking 2
+
+            pause (0.5)
+
+            hide mc with dissolve
+
+
+            scene bg black with fadetoBlack
+ 
+
+            stop music
+
+            play sound "<from 0 to 8>Clock.mp3" loop
+
+            call slowTextfade("You Failed")
+
+            AI "Initiating rewind protocol{nw=0.5}"
+
+            pause(1)
+
+            stop sound
+
+            jump ch1sub_chapter1
+
+    show mc neutral 1
 
     hector "Walang anuman. Tumutulong lamang ako sa kapwang Filipino."
 
-    show mc neutral 1 at fadeOutSlow
+    show mc speaking 1
 
-    show hector request at fadeOutSlow
+    mc "Oh by the way, ako nga pala si [mcName]."
+    
+    mc "Ano ang pangalan mo?"
 
-    pause(1)
+    show mc neutral 1
+    
+    hector "Ako nga pala si Hector Santos, isa akong mag-aaral sa Unibersidad ng Ateneo de Manila."
+
+    hide hector with dissolve
+
+    show mc thinking 3
+
+    pause(0.5)
+
+    hide mc with dissolve
+
+    stop music
 
 
-    scene bg hector house request with fadetoBlack
+    scene bg hector house with fadetoBlack
 
 
-    show mc neutral 1 at left, fadeInSlow
+    play music "Morning.mp3" volume 0.3 fadein 1.0 fadeout 1.0
 
-    show hector request at right, fadeInSlow
+    show mc neutral 1 at left, large, fadeInSlow:
+        xzoom -1.0
 
-    hector "Andito na tayo sa aking tahanan. Nakalimutan ko palang ipakilala ang aking sarili."
+    show hector at right, large, fadeInSlow
 
-    hector "Ako si Hector Santos, isa akong mag-aaral sa Unibersidad ng Ateneo de Manila. Ano ang iyong pangalan? Paano ka napadpad sa loob ng unibersidad?"
+    hector "Andito na tayo sa aking tahanan. Bago ka makikitira dito, sagutin mo muna ang aking tanong."
+
+    hector "Paano ka napadpad sa loob ng unibersidad?"
     
     show mc thinking 1
 
     menu:
         mcInner "Paano ko ipapaliwanag ang sarili ko..."
 
-        "Ako nga pala si [mcName]":
+        "Mayroon kaming pagsusulit":
+
             show mc speaking 1
 
-            mc "Where are my manners? HAHAHA Ako nga pala si [mcName], ako'y nagmula sa San Carlos Seminary. Mayroon kaming pagsusulit in which kailangan namin maghanap ng isang scholar or historian." 
+            mc "Ako'y nagmula sa San Carlos Seminary. Mayroon kaming pagsusulit in which kailangan namin maghanap ng isang scholar or historian." 
 
-        "Ako'y nagmula sa San Carlos Seminary":
+        "Isa akong time-traveller":
+
             show mc speaking 1
 
-            mc "Where are my manners? HAHAHA Ako nga pala si [mcName], ako'y nagmula sa San Carlos Seminary. Mayroon kaming pagsusulit in which kailangan namin maghanap ng isang scholar or historian." 
+            mc "To be honest with you, isa akong time-traveller at nanggaling ako sa ibang timeline."
+
+            hector "..."
+
+            hector "Mukha ba akong uto-uto sayo?"
+
+            hector "Noong una palang iniisip ko na kahina-hinalang tao ka. Ngayon ay nakumpirma na ang na sa aking isip."
+
+            hector "Mga guwardiya!! Tulong!"
+
+            show mc realization
+
+            
+            scene bg black with fadetoBlack
+
+
+            stop music
+
+            play sound "<from 0 to 8>Clock.mp3" loop
+
+            call slowTextfade("You failed")
+
+            AI "Initiating rewind protocol{nw=0.5}"
+
+            pause(1)
+
+            stop sound
+
+            jump ch1sub_chapter1
             
     mc "Pagmamasadan namin sila at gagawa kame ng report after. Funded naman ito ng eskwelahan so hinde ko na kailangan mag-worry sa gastusin." 
             
@@ -284,45 +400,38 @@ label ch1sub_chapter1:
 
     hector "Bilang isang piraso ng bagong ebidensya sa kasaysayan, itinatag ng LCI na ang mga isla ng pilipinas ay mahusay na umuunlad sa panahon ng kalakalan sa timog-silangang asya noong ika-sampung siglo."
 
-    show hector request at fadeOutSlow
+    hide hector with dissolve
 
-    show mc neutral 1 at fadeOutSlow
+    hide mc with dissolve
 
-    pause(1)
-
-
-    scene bg black with fadetoBlack
-
+    show bg black with fadetoBlack
 
     call slowTextfade("Pagkatapos ng ilang araw")
 
 
-    scene bg hector house request with fadetoBlack
+    scene bg hector house with fadetoBlack
 
 
-    show hector request at right, fadeInSlow
+    show hector at right, large, fadeInSlow
 
-    show mc neutral 1 at left, fadeInSlow
-
-    pause(1)
+    show mc neutral 1 at left, large, fadeInSlow:
+        xzoom -1.0
 
     hector "Tara. Dadalhin kita kung saan pinag-aaralan ng aking grupo ang LCI."
 
-    show mc neutral 1 at fadeOutSlow
+    hide mc with dissolve
 
-    show hector request at fadeOutSlow 
-
-    pause(1)
+    hide hector with dissolve
 
 
-    scene bg hector lci request with fadetoBlack
+    scene bg classroom with fadetoBlack
 
 
-    show mob_character lci request as mobchar1 at left, fadeInSlow
+    show silouette as mobchar1 at left, large, fadeInSlow
 
-    show mob_character lci request as mobchar2 at right, fadeInSlow
+    show silouette as mobchar2 at right, large, fadeInSlow
 
-    show hector request at center, fadeInSlow
+    show hector at center, large, fadeInSlow
 
     hector "Mga ginoo. Ito nga pala si [mcName]. Siya ay mayroong pagsusulit kung saan kailangan niya tayong obserbahan. Sana ay wala kayong problema dito."
 
@@ -330,43 +439,38 @@ label ch1sub_chapter1:
 
     "Scholar" "Sa tingin din po namin ay malapit nang matapos ang ating pagsasalin sa LCI. Ilang araw na lang at mapapala thala na natin ang ating nasaliksik dito."
 
-    hector "Abay ito ay magandang balita! Ipagpatuloy na natin ito mga ginoo."
+    hector "Abay ito ay magandang balita! Ipagpatuloy na natin ang ating pag-sasaliksik mga ginoo."
 
-    show mob_character lci request as mobchar1 at fadeOutSlow
+    hide mobchar1 with dissolve
 
-    show mob_character lci request as mobchar2 at fadeOutSlow
+    hide mobchar2 with dissolve
 
-    show hector request at fadeOutSlow
+    hide hector with dissolve
 
-    pause(1)
-
-
-    scene bg black with fadetoBlack
-
+    show bg black with fadetoBlack
 
     call slowTextfade("Makalipas ng ilang araw")
 
 
-    scene bg hector lci request with fadetoBlack
+    scene bg classroom with fadetoBlack
 
 
-    show hector request at right, fadeInSlow
+    show hector at right, large, fadeInSlow
 
     hector "Ayon sa ating matinding pananaliksik tungkol sa LCI maari ko nang sabihin na ang LCI ay ginawa pabalik noong 900 AD. Ginagawa itong isa sa mga pinakaunang nakasulat na tala sa pilipinas."
 
     hector "Makakauwi na din tayo mga kaibigan!"
 
-    show hector request at fadeOutSlow
-
-    pause(1)
+    hide hector with dissolve
 
 
-    scene bg hector house request with fadetoBlack
+    scene bg hector house with fadetoBlack
 
 
-    show hector request at right, fadeInSlow
+    show hector at right, large, fadeInSlow
 
-    show mc speaking 1 at left, fadeInSlow
+    show mc speaking 1 at left, large, fadeInSlow:
+        xzoom -1.0
 
     mc "Ako'y namamangha sa iyong natuklasan, Thank you talaga sa opportunity na iyong binigay sakin."
 
@@ -380,42 +484,41 @@ label ch1sub_chapter1:
 
     mc "Once again thank you very much ginoong Hector at ako'y mauuna na hanggang sa muli nating pagkikita."
 
-    show mc neutral 1 at fadeOutSlow
+    hide mc with dissolve
 
-    show hector request at fadeOutSlow
-
-    pause(1)
-
-    hide mc
-
-    hide hector
+    hide hector with dissolve
 
 
     scene bg black with fadetoBlack
 
 
-    show mc thinking 1 at left, fadeInSlow
+    play music "Intrepid.mp3" volume 0.3 fadein 1.0 fadeout 1.0
+
+    show mc thinking 1 at right, large, fadeInSlow
 
     AI "You just obtained an item which can be used to partially repair and restore my timeleap ability so that you can travel back to your timeline."
 
     AI "Are you ready to go?"
 
-    show mc thinking 3 at center
+    show mc thinking 3 at center, large
 
     menu:
         mcInner "..."
 
         "Yes":
+            show mc thinking 1
             mc "This journey was fun but I want to return to my original timeline."
 
         "No":
+            show mc thinking 1
             AI "Unfortunately, we cannot remain in a timeline for longer than necessary."
-
-    show mc thinking 1
 
     pause(1)
 
     scene bg white with fadetoWhite
+
+
+    stop music
 
     return
 
@@ -427,9 +530,11 @@ label ch1sub_chapter2:
 
     call slowTextfade("Chau Ju Kua's Chu Fan Chi")
 
+    play music "Comfortable Mystery 2.mp3" volume 0.3 fadein 1.0 fadeout 1.0
+
     $ i = 0
     while i < 2:
-        show bg classroom request with eyeopen:
+        show bg classroom with eyeopen:
             blur 5.0
         pause(1)
         show bg black with eyeclose
@@ -437,11 +542,13 @@ label ch1sub_chapter2:
         $ i =  i + 1
     $ i = 0
 
-    show bg classroom request with eyeopen:
+    show bg classroom with eyeopen:
         blur 5.0
         easein 2.0 blur 0.0
     
-    show classmate y request at right, fadeInSlow
+    play sound "<from 0 to 8>Clock.mp3"
+
+    show classmate y at right, fadeInSlow
 
     y "Uhmm… Hello??? Gising na, kanina kapa natutulog."
 
@@ -455,19 +562,19 @@ label ch1sub_chapter2:
 
     mc "Thank you talaga dahil ginising mo ako."
 
-    show classmate y request at right, fadeOutSlow
+    hide classmate with dissolve
 
-    # door open sfx
+    play sound "Door Open.mp3"
 
-    play sound "<from 0.0 to 1.5>Footstep Concrete Slowed.mp3" volume 0.25
+    pause(0.5)
 
-    pause(1)
+    play sound "<from 0.0 to 1.5>Footstep Concrete.mp3"
+
+    pause(0.5)
 
     "Professor" "Ang pagsusulit na gagawin ninyo sa araw na ito, ay magsusulat kayo ng personal na pagsusuri sa libro na nagngangalang “Chu Fan Chi” sa kadahilanang itinalaga ko to sa inyo na basahin kagabi."
 
-    pause(1)
-
-    show classmate y request at center, fadeInSlow
+    show classmate y at center, fadeInSlow
 
     mc "Nako hindi ko nabasa ang librong iyon at hindi ako nag-aral kagabi. Paano na ito ngayon?"
 
@@ -479,17 +586,13 @@ label ch1sub_chapter2:
 
     mc "Ohh, I understand it now. Maraming salamat sa pagpapaliwanag. Ngayon ay pwede ko nang gawin at tapusin ang pagsusulit na binigay satin."
 
-    show classmate y request at center, fadeOutSlow
-
-    pause(1)
-
-    hide classmate y request
-
-    pause(2)
+    hide classmate with dissolve
 
 
     scene bg white with fadetoWhite
 
+
+    stop music
 
     return
 
@@ -504,8 +607,11 @@ label ch1sub_chapter3:
     call slowTextfade("Antonio Pigafetta's Voyage Around the World")
 
 
-    scene bg beach request with fadetoBlack
+    scene bg beach with fadetoBlack
 
+    play music "Stay the Course.mp3" volume 0.3 fadein 1.0 fadeout 1.0
+
+    play sound "<from 0 to 8>Clock.mp3"
 
     mc "What's going on? Where am I?"
 
@@ -525,9 +631,9 @@ label ch1sub_chapter3:
 
     pause(1)
 
-    show spaniard request at center
+    show spaniard at center
 
-    "???" "What are you doing here" #translate to spanish
+    "???" "What are you doing here!" #translate to spanish
 
     mc "Wait!"
 
@@ -536,10 +642,11 @@ label ch1sub_chapter3:
 
     scene bg black with fadetoBlack
 
+    play music "SCP-x5x.mp3" volume 0.3 fadein 1.0 fadeout 1.0
 
     $ i = 0
     while i < 2:
-        show bg storage room request with eyeopen:
+        show bg storage room with eyeopen:
             blur 5.0
         pause(1)
         show bg black with eyeclose
@@ -547,10 +654,10 @@ label ch1sub_chapter3:
         $ i =  i + 1
     $ i = 0
 
-    show bg storage room request with eyeopen:
+    show bg storage room with eyeopen:
         blur 0.0
 
-    show mc left arm 1 at left
+    show mc left arm 1 at left, large
 
     mc "Why did you even bring me here in the first place?!"
 
@@ -564,13 +671,17 @@ label ch1sub_chapter3:
 
     hide mc
 
+    show mc thinking 3 at center, large
+
     mcInner "1521? I'm pretty sure that's around the Battle of Mactan but I can't remember the people in that event."
 
     mc "Battle of Mactan... someone important died. Who was it?"
 
-    show spaniard request at left, fadeInSlow
+    show spaniard at left, fadeInSlow:
+        yoffset(200)
+        xysize (1080, 1080)
 
-    show mc speaking 3 at right
+    show mc thinking 2 at right, large
 
     "Spaniard" "¿Hablas español?"
 
@@ -584,6 +695,8 @@ label ch1sub_chapter3:
 
     "Spaniard" "¿Qué haces aquí cerca del campamento? (What are you doing here near the camp?)"
 
+    show mc thinking 3
+
     menu:
         mcInner "Ano sasabihin ko dito..."
 
@@ -594,13 +707,23 @@ label ch1sub_chapter3:
 
             "Spaniard" "¡Debes ser un enemigo! Te tiramos por la borda por mentirte delante de Dios. (You must be an enemy! We will throw you overboard for lying in front of God.)"
 
-            show spaniard at fadeOutSlow
+            hide mc with dissolve
+
+            hide spaniard with dissolve
 
             show bg black with fadetoBlack
 
+            stop music
+
+            play sound "<from 0 to 8>Clock.mp3" loop
+
             call slowTextfade("You Died")
 
+            AI "Initiating rewind protocol{nw=0.5}"
+
             pause(1)
+
+            stop sound
 
             jump ch1sub_chapter3
 
@@ -620,23 +743,33 @@ label ch1sub_chapter3:
 
             "Spaniard" "¡Debes ser un enemigo! Te tiramos por la borda por mentirte delante de Dios. (You must be an enemy! We will throw you overboard for lying in front of God.)"
 
-            show spaniard request at fadeOutSlow
+            hide mc with dissolve
+
+            hide spaniard with dissolve
 
             show bg black with fadetoBlack
 
+            stop music
+
+            play sound "<from 0 to 8>Clock.mp3" loop
+
             call slowTextfade("You Died")
 
+            AI "Initiating rewind protocol{nw=0.5}"
+
             pause(1)
+
+            stop sound
 
             jump ch1sub_chapter3
 
     show bg black with fadetoBlack
 
 
-    scene bg storage room request with fadetoBlack
+    scene bg storage room with fadetoBlack
 
 
-    show slave request at left
+    show slave 1 at left
 
     "Slave 1" "Kamusta ka? Nais mo ba maging malaya? (How are you? Do you want to be free?)"
 
@@ -645,7 +778,7 @@ label ch1sub_chapter3:
     "Slave 1" "Wag mong ibahagi sa mga Kastila ang tungkol sa ating usapan. (Don't tell the Spaniards about our conversation.)"
 
 
-    scene bg storage room request with fadetoBlack
+    scene bg storage room with fadetoBlack
 
 
     "Spaniard 1" "¡Los nativos son demasiado vulgares para ser colonizados! ¡Ni siquiera pueden vestirse con ropa! (The natives are too vulgar to be colonized! They can't even dress up in clothes!)"
@@ -667,12 +800,14 @@ label ch1sub_chapter3:
     call slowTextfade("In Cebu")
 
 
-    scene bg beach request with fadetoBlack
+    scene bg beach with fadetoBlack
 
 
-    show spaniard request at right
+    show spaniard at right:
+        xysize(1080, 1080)
+        yoffset(250)
 
-    show slave request at center
+    show slave 1 at center
 
     show mc thinking 1 at left
 
@@ -694,13 +829,13 @@ label ch1sub_chapter3:
 
     "Spaniard" "Kill the heretics!"
 
-    show spaniard request at fadeOutSlow
+    hide spaniard with dissolve
 
-    show slave request at fadeOutSlow
-
-    pause(1)
+    hide slave with dissolve
 
     show bg black
+
+    show mc thinking 3
 
     play sound "Fighting.mp3" loop
 
@@ -709,10 +844,12 @@ label ch1sub_chapter3:
     stop sound
 
 
-    scene bg beach request with fadetoBlack
+    scene bg beach with fadetoBlack
 
 
-    show spaniard request at center, fadeInSlow
+    show spaniard at center, fadeInSlow
+
+    show spaniard at left, fadeInSlow as spaniard2
 
     show mc thinking 1 at right, fadeInSlow
 
@@ -726,13 +863,29 @@ label ch1sub_chapter3:
 
     "Spaniard 2" "No importa. Vámonos de aquí. (Never mind. Let us get out of here.)"
 
+    hide spaniard2 with dissolve
+
+    pause(1)
+
+    show spaniard at center:
+        xysize(1080, 1080)
+        yoffset(200)
+
+    "Spaniard 1" "Hey!"
+
+    show mc realization 1
+
     "Spaniard 1" "Ven aquí, nos vamos. No intentes ser inteligente con nosotros, (Come here, we are leaving. Don't try to be smart with us,)"
 
-    "Spaniard 1" "Porque si lo haces, haremos lo mismo que les hicimos a estos bárbaros de aquí. ¿Comprendido? (because if you do, we will do to you what we did to these barbarians here. Understood?)"
+    show mc thinking 1
+
+    "Spaniard 1" "Porque si lo haces, haremos lo mismo que les hicimos a estos bárbaros de aquí. ¿Comprendido? (Because if you do, we will do to you what we did to these barbarians here. Understood?)"
+
+    show mc speaking 3
 
     mc "S-Sí… (O-Okay…)"
 
-    show spaniard request at fadeOutSlow
+    hide spaniard with dissolve
 
     mcInner "We were never told in history class that the Spanish burned down villages because of their refusal to convert. I wonder… the history I have learned is truly biased against my ancestors!"
     
@@ -757,19 +910,28 @@ label ch1sub_chapter3:
 
     AI "You cannot. It is an unspoken rule of time travel that the traveler must not meddle with what has already taken place. Doing so can cause complications."
 
+    hide mc with dissolve
 
-    scene bg ship request with fadetoBlack
+    stop music
 
 
-    show magellan request at center, fadeInSlow
+    scene bg ship with fadetoBlack
 
-    "Spanish Lieutenant" "Como habrás notado, nos estamos preparando para una batalla. (As you may have noticed, we are preparing for a battle.)"
 
-    "Spanish Lieutenant" "Nuestro enemigo es un obstinado bárbaro de Mactán y su tribu de salvajes. (Our enemy is a stubborn barbarian from Mactan and his cohort tribe of savages.)"
+    play music "Southern Gothic.mp3" volume 0.5 fadein 1.0 fadeout 1.0
 
-    "Spanish Lieutenant" "Se ha negado tontamente a obedecernos a nosotros y a nuestros aliados, (He has foolishly refused to obey us and our Allies,)" 
+    show magellan at center, large, fadeInSlow
+
+    show pigafetta at right, fadeInSlow:
+        xysize(800, 800)
+
+    "Magellan" "Como habrás notado, nos estamos preparando para una batalla. (As you may have noticed, we are preparing for a battle.)"
+
+    "Magellan" "Nuestro enemigo es un obstinado bárbaro de Mactán y su tribu de salvajes. (Our enemy is a stubborn barbarian from Mactan and his cohort tribe of savages.)"
+
+    "Magellan" "Se ha negado tontamente a obedecernos a nosotros y a nuestros aliados, (He has foolishly refused to obey us and our Allies,)" 
     
-    "Spanish Lieutenant" "E iremos a esa isla para darles una lección a él y a sus bárbaros incivilizados. (And we will go over to that island to teach him and his uncivilized barbarians a lesson.)"
+    "Magellan" "E iremos a esa isla para darles una lección a él y a sus bárbaros incivilizados. (And we will go over to that island to teach him and his uncivilized barbarians a lesson.)"
 
     "Slave 1 (Shouting)" "Baliw ba kayo?"
 
@@ -779,17 +941,17 @@ label ch1sub_chapter3:
 
     "Slave 4" "Kung ako ay tanga, masasabi kong magandang plano ang pakikipaglaban sa kanilang tribo, ngunit hindi ako ganoong katanga! Siya at ang kanyang mga tauhan ay mahusay na mandirigma! Baka patay na tayo bago pa natin siya masulyapan!"
 
-    play sound "Gunshot.mp3"
+    play sound "Gunshot.mp3" volume 0.35
 
-    pause(2)
-
-    "Spanish Lieutenant" "¡Qué cobardes sois! ¿Qué hay que temer frente a un grupo de salvajes incivilizados y poco inteligentes? (What cowards you are! What is there to fear in the face of a group of uncivilized and unintelligent savages?)"
-
-    show magellan request at center, fadeInSlow
-
-    show pigafetta request at left, fadeInSlow
+    show magellan firing
 
     mc "!"
+
+    pause(1)
+
+    "Magellan" "¡Qué cobardes sois! ¿Qué hay que temer frente a un grupo de salvajes incivilizados y poco inteligentes? (What cowards you are! What is there to fear in the face of a group of uncivilized and unintelligent savages?)"
+
+    show magellan
 
     mcInner "We are on our way to what will become the Battle of Mactan. Lapu-Lapu and his men will force the Spaniards to retreat, and Magellan would meet his end as a result of a poisoned arrow. Should I warn him or should I just keep my thoughts to myself?"
 
@@ -803,7 +965,7 @@ label ch1sub_chapter3:
             mc "..."
 
 
-    scene bg storage room request with fadetoBlack
+    scene bg storage room with fadetoBlack
 
 
     "Slave 2" "Magkakaroon ba tayo ng pagkakataon laban sa kanya? Kung paniniwalaan ang mga kuwento, siya at ang kanyang mga tauhan ay magaling sa paghahanap at pagsasamantala ng kahinaan sa hanay ng kanilang mga kalaban!"
@@ -829,32 +991,44 @@ label ch1sub_chapter3:
     mcInner "How would things turn out if Magellan survives the battle? I wonder..."
 
 
-    scene bg ship request with fadetoBlack
+    scene bg ship with fadetoBlack
 
 
-    show magellan request at center, fadeInSlow
+    show pigafetta at center, large, fadeInSlow:
+        xzoom -1.0
+
+    show mc speaking 3 at right, large, fadeInSlow
 
     mc "Señor, tengo algo que decirle... (Sir, I have something to tell you...)"
 
     mc "Este jefe y sus hombres son guerreros expertos que se especializan en explotar las debilidades de sus enemigos. (This chief and his men are expert warriors who specialize in exploiting their enemies' weaknesses.)"
 
-    mc "Ten mucho cuidado si decides luchar contra ellos. (Be really careful if you do decide to fight them.)"
+    mc "Ten mucho cuidado si decides luchar contra ellos. (We should be more careful in this fight.)"
 
-    "Magellan" "..."
+    "???" "..."
 
-    "Magellan" "WAHAHAHA{nw}"
+    "???" "WAHAHAHAHAHAHAHA!!{nw=0.5}"
 
-    "Magellan" "Te aseguro, muchacho, que estamos muy por delante de ellos en tecnología y tácticas. (I assure you, boy, that we are way ahead of them in technology and tactics.)"
+    "???" "Te aseguro, muchacho, que estamos muy por delante de ellos en tecnología y tácticas. (I assure you, boy, that we are way ahead of them in technology and tactics.)"
 
-    "Magellan" "Sus lanzas y flechas no son rival para nuestra armadura, y nuestras armas pueden penetrar su armadura de madera fácilmente. (Their spears and arrows are no match for our armor, and our guns can penetrate their wooden armor easily.)"
+    "???" "Sus lanzas y flechas no son rival para nuestra armadura, y nuestras armas pueden penetrar su armadura de madera fácilmente. (Their spears and arrows are no match for our armor, and our guns can penetrate their wooden armor easily.)"
 
-    "Magellan" "No hay de qué preocuparse, los aplastaremos. (There is no need to worry, we will crush them.)"
+    "???" "¡Además estamos encabezados por el gran capitán Magallanes! Como has visto antes, ¡su presencia fue excepcional! (What's more is we are headed by the great captain Magellan! As you have seen earlier, his presence was outstanding!)"
 
-    show magellan request at fadeOutSlow
+    "Pigafetta" "¡Yo, Antonio Pigafetta, estoy feliz de haber podido acompañarlo en este viaje alrededor del mundo! (I, Antonio Pigafetta, am glad to have been able to accompany him on this voyage around the world!)"
+
+    "Pigafetta" "No hay de qué preocuparse, los aplastaremos. (There is no need to worry, we will crush them.)"
+
+    hide magellan with dissolve
+
+    stop music
 
 
-    scene bg beach request with fadetoBlack
+    scene bg beach with fadetoBlack
 
+
+
+    play music "Stay the Course.mp3" volume 0.3 fadein 1.0 fadeout 1.0
 
     AI "Are you still there?"
 

@@ -35,25 +35,38 @@ define eyeclose = ImageDissolve("eye.png", 1.0, 16, reverse=True)
 
 transform fadeInSlow:       # Usage Example
     alpha 0.0               # show [image] at fadeInSlow
-    easein 1.0 alpha 10.0
+    linear 1.0 alpha 10.0
     alpha 10.0
 
 transform fadeOutSlow:      # Usage Example
     alpha 10.0               # show [image] at fadeOutSlow
-    easein 1.0 alpha 0.0    # pause(1)
+    linear 1.0 alpha 0.0    # pause(1)
     alpha 0.0
 
-transform small:
-    zoom 0.75
-
 transform large:
-    zoom 1.25
+    xysize (900, 900)
+
+define config.tag_transform = {"mc": large}
+
+transform flipOn:
+    xzoom -1.0
+
+transform flipOff:
+    xzoom 1.0
+
+image bg gray animated:
+    "bg gray" with dissolve
+    pause(2)
+    "bg gray 2" with dissolve
+    pause(2)
+    repeat
 
 label slowTextfade(info):                   # Usage Example
-    centered "{cps=7.5}{b}[info]{nw=2}"     # call slowTextfade("Enter Text Here")
-    show text "{b}[info]{nw=2}" as text1        
-    show text "{b}[info]" at fadeOutSlow as text1
-    pause(1)
+    centered "{cps=9}{b}[info]{nw=2}"     # call slowTextfade("Enter Text Here")      
+    show text "{b}[info]{nw=1}" as text1:
+        alpha 1.0
+        linear 0.5 alpha 0.0
+    pause(0.5)
     hide text1
     return
 
@@ -63,15 +76,15 @@ default preferences.text_cps = 35
 
 label start:
 
-    call slowTextfade("Lorem Ipsum")
+    call slowTextfade("Can You Change History?")
 
-    call slowTextfade("Dolor Sit Amet")
+    call slowTextfade("Or Will History Change You?")
 
     pause(1)
 
-    play music "Once Upon a Time.mp3" volume 0.1 fadein 2.0 fadeout 2.0
+    play music "SCP-x7x.mp3" volume 0.25 fadein 1.0 fadeout 1.0
 
-    scene bg gray with fadetoBlack
+    scene bg gray animated with fadetoBlack
 
     "???" "It's nice to meet you."
     "???" "You must still be confused right after waking up."
@@ -94,7 +107,7 @@ label start:
 
     pause(1)
 
-    show mc speaking 2 at left, large
+    show mc speaking 2 at left, large, flipOn
 
     mc "Wait, who am I talking to right now?"
 
@@ -121,19 +134,18 @@ label start:
     
     "???" "I wish you good luck in your journey.{nw=1}"
 
+    show mc thinking 3
+
+
     scene bg black with fadetoBlack
-
+    
     call skip
-
-    call chapter_1
 
     call chapter_2
 
     call chapter_3
 
     call chapter_4
-
-    call chapter_5
 
     return
 

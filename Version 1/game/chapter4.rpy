@@ -22,11 +22,15 @@ define CIAExecutive = Character("CIA Executive", color="#777875", voice_tag="CIA
 
 label chapter_4:
     show bg black
-    call slowTextfade("Chapter 4 Start")
 
     call slowTextfade("The Philippines Under the United States")
 
-    label subChapter1:
+    call subChapter1
+
+    return
+
+
+label subChapter1:
     #(Filipino Grievances Against Governor-General Wood)
     #SCENE1
 
@@ -34,10 +38,9 @@ label chapter_4:
     call slowTextfade("Filipino Grievances Against Governor-General Wood")
     play music "/music/bg_ph_street.mp3" fadein 0.5 volume 0.2
 
-    scene bg ph-street
-    with fade
+    scene bg street with fade
 
-    show mc thinking2
+    show mc thinking2 at left
 
     "..." " [mc] gets teleported to a street in Manila noticing the different scenery and ambiance"
     "..." " [mc] sees 5 people storming out of a building one of which [mc] remembers to be Manuel Quezon"
@@ -53,8 +56,8 @@ label chapter_4:
             jump textEvent6
 
     
-    label textEvent6:
-        "..." "[mc] decides to follow the other 4 people who seem to be walking towards an alley-way."
+label textEvent6:
+    "..." "[mc] decides to follow the other 4 people who seem to be walking towards an alley-way."
     play sound "audio/Footstep concrete.mp3" volume 0.2
     "..." "Along the way the [mc] listens in to the 4 people gossiping."
 
@@ -77,7 +80,7 @@ label chapter_4:
 
     person2 "(Nodding) At ngayon itinalaga nila si General Wood."
 
-    show mc thinking
+    show mc thinking at right
     mc "(Listening intently) General Wood? Hindi ba siya yung  American gobernador-heneral?"
 
     "..." "(Chatter of multiple people discussing the \"anti-filipino\" report from Gen. Wood administration.)"
@@ -100,17 +103,16 @@ label chapter_4:
     mc "(Continuing to explore Manila) Ganito pala ang maynila sa panahon ng mga amerikano. Ibang-iba sa nakasanayan ko."
 
     #Scene 2
-    scene bg ph-street
-    with fade
+    scene bg street with fade
     "..." "the next day,[mc] goes to the same alley-way surprised to see that the number of people have doubled and that it had more important looking people."
 
-    show mc speaking2 
+    show mc speaking2 at left
     " [mc] (Inner monologue)"" hmmm… Sa sino sino kaya ang mga importanteng tao sa mga iyon? Siguro puro sila mga politiko…"
 
     "..." "It seemed that the Filipinos at the time decided to create a petition letter to address their grievances against Governor-General Leonard Wood."
     "..."  "The person writing the letter reads aloud as they write the letter."
 
-    show mc default 
+    show mc default at left
     person4 "The first twenty years of civil government were marked by mutual understanding and loyal cooperation between American and Filipinos."
     person4 "At the end of that period, when it seemed that the goal had finally been reached."
     person4 "After the President of the United States had advised the Congress that the time had come for America to fulfill her sacred pledge."
@@ -120,30 +122,29 @@ label chapter_4:
     person4 "The destruction of our constitutional system, and the reversal of America's Philippine policy."
     
     "..." "[mc] wonders for a bit and connects the pieces of the puzzle"
-    show mc speaking2 
+    show mc speaking2 at left
     mc "So ganun pala ang nangyari… lahat ng Filipino leaders ay galit kay general Wood sa kadahilanang, naibunyag nya ang mga corruption ng mga filipino leaders habang siya ay namamahala bilang governor-general."
     mc "Ang corruption na galing sa mga filipino leaders ay isang paghahanda para sa Philippine Independence." 
-    show mc speaking
+    show mc speaking at left
     mc "Pinalalawak nila ang kanilang kapangyarihan upang pagdating ng panahon ang pilipinas ay maging malaya pero sila ang mamamahala dito."
     
     "..." "After [mc]'s inner monologue he suddenly gets teleported and while within the time machine rift he realizes:"
 
     "[mc] (Inner Monologue)" "Ngayon ko lang na realize na nasa American Era of Philippine History pala ako…"
 
-
-
-    label subchapter2:
+label subchapter2:
     #(CIA Intelligence Memorandum)
     #Scene1
-    scene bg cia-table
-    with fade
 
     show bg black
+
+    scene bg meeting with fade
+
     call slowTextfade("CIA Intelligence Memorandum")
     play music "music/bg_cia.mp3" fadein 0.5 volume 0.2 fadeout 0.5
 
     
-    show mc suit 
+    show mc suit at center
     "..." "[mc] gets teleported in a dimly lit room where [mc] sees people in black suits having a meeting seated at a long rectangular table."
     "..."  "[mc] then looks around to realize that there are guards around the room and that [mc] outfit is similar to that of a guard."
 
@@ -160,10 +161,11 @@ label chapter_4:
             jump textEvent7
         "This is dangerous I should get out of here":
             "[mc] (Inner thoughts)" "If i dont do this I wont be able to go home"
+            jump textEvent7
 
-    label textEvent7:
-        "..." "[mc] stands at the corner of a room acting as a guard."
-        "..." "The meeting commences as a CIA executive opens with a stern tone."
+label textEvent7:
+    "..." "[mc] stands at the corner of a room acting as a guard."
+    "..." "The meeting commences as a CIA executive opens with a stern tone."
     hide mc
     show executive default at left
     CIAExecutive "Gentlemen, we are gathered today to discuss a matter of national security."
@@ -209,11 +211,9 @@ label chapter_4:
     "..." "Just before the guard catches up, they are transported back to the time machine rift where they're nowhere to be seen."
 
     stop music
-    scene bg black
-    with fade
+    scene bg black with fade
     call slowTextfade("While our main character is time travelling, the time machine short-circuited rendering our main character unconscious, giving them amnesia")
-    scene bg black
-    with fade
+    scene bg black with fade
     call slowTextfade("Then the mc wakes up")
     scene bg campus dawn request
 
@@ -227,5 +227,5 @@ label chapter_4:
     call slowTextfade ("End")
 
     pause (5)
-    python:
-        renpy.full_restart()
+
+    $ renpy.full_restart()
