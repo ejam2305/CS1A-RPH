@@ -195,7 +195,4 @@ label skip:
         "Chapter 4":
             call chapter_4
 
-        "Chapter 5":
-            call chapter_5
-
     return
