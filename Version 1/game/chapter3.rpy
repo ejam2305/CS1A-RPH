@@ -147,11 +147,11 @@ label chapter_3:
    
     "[ds]" "(Breaks the seal and scans the contents) Hmm... nakapukaw ng pansin. Mukhang nais ng Obispo(bishop) na talakayin ang mga bagong pangyayaring ito.."
    
-    show crowd
+    show speaker at right
     cx "Ano ang ibig niyang iparating diego?"
    
     ds "Tinatanggihan niya ang aking mga kahilingan para sa awtonomiya ng Ilocano. Iginiit niya na tumindig tayo at sumuko sa pamumuno ng Espanyol."
-    hide crowd
+    hide speaker
     show mc thinking at right
     with dissolve
 
