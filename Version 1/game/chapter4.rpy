@@ -136,7 +136,7 @@ label chapter_4:
     #(CIA Intelligence Memorandum)
     #Scene1
 
-    show bg black
+    scene bg black
     call slowTextfade("CIA Intelligence Memorandum")
     play music "music/bg_cia.mp3" fadein 0.5 volume 0.2 fadeout 0.5
 
