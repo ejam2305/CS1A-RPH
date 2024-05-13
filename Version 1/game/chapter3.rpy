@@ -181,10 +181,9 @@ label chapter_3:
    
     "..." "(Diego Silang calls for another meeting with [mc] and Character X.)"
     
-    show speaker
-    ds "Humanting ako ng isang mahirap na desisyon. Para sa kapakanan ng ating mga tao, ako ay... susuko sa mga awtoridad ng Britanya"
+    ds "Humantong ako ng isang mahirap na desisyon. Para sa kapakanan ng ating mga tao, ako ay... susuko sa mga awtoridad ng Britanya"
     
-    show speaker as speaker2 at right
+    show speaker at right
     cx "Sumuko? Pero Diego... hindi tayo pwedeng sumuko na lang!"
     
     show mc speaking2 at left
