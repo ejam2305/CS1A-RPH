@@ -129,7 +129,7 @@ label chapter_3:
    
     show mc default
 
-    scene bg chap3hallway
+    scene bg ph-street
     with fade
 
     show diego default
