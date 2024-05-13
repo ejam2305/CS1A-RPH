@@ -237,7 +237,7 @@ label chapter_2:
         show mc default
         mc "Uhh.. What is this place? Hmm... I'm seeing lots of books here. I see, I'm in the library now."
 
-        show librarian at right
+        show librarian default at right
         "..." "(A librarian walks up to him)"
 
         librarian "Hey.. what are you doing here?"
