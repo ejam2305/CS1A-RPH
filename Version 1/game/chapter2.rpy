@@ -218,14 +218,14 @@ label chapter_2:
         
         "..." "To be continued..."
         pause(2)
-
+        hide mc
         jump sub_chapter2
 
         label sub_chapter2:
         #Antonio De Morga Sucesos de Las Islas
         
         #Scene 1 (Library)
-        show bg black
+        scene bg black
         call slowTextfade("Antonio De Morga Sucesos de Las Islas")
 
         play music "music/bg_library.mp3" fadein 0.5 volume 0.2
