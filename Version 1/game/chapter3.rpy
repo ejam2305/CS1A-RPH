@@ -138,11 +138,11 @@ label chapter_3:
     show mc speaking at left    
     mc "Ginagawa lang namin ang aming parte, Diego Silang. Naniniwala kami sa iyong layunin."
    
-    show crowd
+    show speaker at right
     cx "Siyang Tunay! Ang malayang Ilocos ay isang kinabukasan may saysay na ipaglaban."
    
     ds "At yan ang kinabukasan na nais nating makamit!."
-    hide crowd
+    hide speaker
     "..." "(One evening, a messenger arrives at Diego Silang's camp, bearing a sealed letter with the Bishop's mark.)"
    
     "[ds]" "(Breaks the seal and scans the contents) Hmm... nakapukaw ng pansin. Mukhang nais ng Obispo(bishop) na talakayin ang mga bagong pangyayaring ito.."
