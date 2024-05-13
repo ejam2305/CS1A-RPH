@@ -65,7 +65,7 @@ label chapter_3:
             jump textEvent4
     
     label textEvent4:
-        scene bg prison
+        scene bg cellar
         with fade
 
     "..." "(Loud banging and yelling can be heard in the dark, small room. The MC sits on the cold ground, puzzled.)"
