@@ -41,7 +41,8 @@ label chapter_3:
     "[mc] (Stammers while trying to explain)" "ah-eh…."
     
     sg1 "¡No hables! ¡Un espía británico, sin duda! ¡Intentando provocar problemas entre los leales ilocanos!  (Don't speak!  A British spy, no doubt!  Trying to stir up trouble among the loyal Ilocanos!)"
-   
+
+    hide crowd
     "..." "(The Spanish Guards grab the MC roughly)"
    
     hide guard
