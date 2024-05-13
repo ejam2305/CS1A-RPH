@@ -194,9 +194,9 @@ label chapter_3:
    
     ds "Ako'y inyong Pagkatiwalaan. Ito lamang ang paraan upang iligtas ang Ilixoa. lumisan na kayo! ihatid ninyo ang liham at bumabalik kayo'ng ligtas."
     
-    hide speaker
 
-    hide speaker as speaker2
+    hide speaker 
+    hide diego 
     "..." "([mc] and Character X leave Diego Silang's quarters)"
    
     "..." "(As they embark on their journey to Manila, a tense silence hangs between them. [mc] steals glances at the letter, their mind filled with doubt.)"
