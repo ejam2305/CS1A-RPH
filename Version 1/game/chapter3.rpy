@@ -7,20 +7,23 @@ define h = Character("Hermano", color="#3c3c3c")
 
 label chapter_3:
 
+    show bg black
     call slowTextfade("Chapter 3")
 
     call slowTextfade("Revolts and Revolution")
 
+
+    call slowTextfade("Diego Silang's Letter to the British")
     play music "/music/bg_chapter3.mp3" fadein 0.5 volume 0.2
     label subchapter1_3:
-
+    
     scene bg street request
     with fade
 
 
     "..." "(MC teleports near Vigan City, October 1762 where Diego Silang is giving a Speech.)"
     
-    show speaker
+    show diego default
     with fade
 
     ds "My fellow Ilocanos, hear me! The British threaten our land, our homes, our very existence! But fear not, for we shall stand united against this tyranny!"
@@ -29,23 +32,40 @@ label chapter_3:
 
     show crowd
     with fade
+
+    show guard default at left
+    show guard default as guard2 at right
     "[sg1] (Accusing [mc])" "¡Basta de esta sedición! ¡Dispersar! ¡Dispersar!  (Enough of this sedition!  Disperse!  Disperse!)"
     
     "[sg2] (Pointing at [mc])" "¡Tú allí! ¿Qué estás haciendo aquí? ¡Pareces sospechoso!  (You there!  What are you doing here?  You look suspicious!)"
    
     "[mc] (Stammers while trying to explain)" "ah-eh…."
-   
+    
     sg1 "¡No hables! ¡Un espía británico, sin duda! ¡Intentando provocar problemas entre los leales ilocanos!  (Don't speak!  A British spy, no doubt!  Trying to stir up trouble among the loyal Ilocanos!)"
    
     "..." "(The Spanish Guards grab the MC roughly)"
    
-    show mc realization at left
+    hide guard
+    hide guard2
+    show mc realization
 
     mc "¡No soy un espía! ¡Acabo de llegar! (Wait! I'm not a spy!  I... I just got here!)"
-   
     "..." "(The Spanish Guards ignore him and drag him away.)"
    
-    scene bg prison request
+    show mc speaking
+    menu:
+
+        "The spanish soldiers took hold of you..."
+
+        "Try to escape":
+            "..." "[mc] tried to escape but failed"
+            jump textEvent4
+
+        "Dont resist":
+            jump textEvent4
+    
+    label textEvent4:
+        scene bg prison request
 
     "..." "(Loud banging and yelling can be heard in the dark, small room. The MC sits on the cold ground, puzzled.)"
     
@@ -56,7 +76,7 @@ label chapter_3:
     "[mc] (Inner Voice)" "Nasaan ako? Anong taon ito? Mukhang hindi maganda ito… "
    
     "[mc] (Whispering)" "Ano ang nangyayari? may away ba?"
-   
+    
     "someone" "Labas! ang Gobernadorcillo ay na patapon na! Pinalayas na ni Diego silang ang mga alagad ng espanya!"
    
     "..." "(Another character, also unshackled, emerges from a nearby cell and approaches [mc].)"
@@ -85,7 +105,7 @@ label chapter_3:
 
     "..." "(The Ilocano rebel leads them through the crowd, pointing towards a platform where Diego Silang stands addressing the people.)"
     hide mc
-    show speaker
+    show diego default
     ds "Sa sobrang tagal, nagdusa tayo sa ilalim ng kamay na bakal ng Espanya! Pero wala na!"
     ds "Tayong mga Ilokano ay bumangon at inangkin ang ating kalayaan! Ngayon, isang bagong banta ang nagbabanta - ang Britanya!"
     ds "Pero hindi tayo magpapatalo! Ipaglalaban natin ang ating lupain, para sa ating kinabukasan!"
@@ -112,7 +132,7 @@ label chapter_3:
     scene bg chap3hallway
     with fade
 
-    show speaker
+    show diego default
     "[ds]" "(Approaches [mc] and Character X with a satisfied smile on his face) Magaling! kayong dalawa! ang inyong dedikasyon ay talagang nakaka enganyo."
    
     show mc speaking at left    
@@ -131,10 +151,11 @@ label chapter_3:
     cx "Ano ang ibig niyang iparating diego?"
    
     ds "Tinatanggihan niya ang aking mga kahilingan para sa awtonomiya ng Ilocano. Iginiit niya na tumindig tayo at sumuko sa pamumuno ng Espanyol."
-    
+    hide crowd
     show mc thinking at right
     with dissolve
 
+    show diego default
     mc "Tipikal! Hindi sila makikinig sa dahilan."
    
     ds "Kung ganon ay pilitin natin sila na tayo ay pakinggan. Tatawag ako para sa isang pulong sa mga awtoridad ng Simbahan."
@@ -144,14 +165,13 @@ label chapter_3:
     "..." "(The tension from the meeting with the Church lingers in the air as Diego Silang gathers with [mc] and Character X in a private room.)"
    
     ds "Ang ultimatum ng Simbahan... nag-iiwan ito sa atin ng mahihirap na pagpapasya. "
-    
     show speaker at left
     cx "Isa lang ang pagpipilian Diego! makipag laban tayo! manindigan tayoct palayasin ang mga espanyol! ng sa gayon ay mapag tuonan natin ng pansin and britanya."
    
     mc "Sandali lamang, Character X. Paano kung may ibang paraan? Marahil maaari nating muling suriin ang ating relasyon sa mga Espanyol. Kung madiskarteng lapitan natin sila, siguro makukumbinsi natin sila na tulungan tayo laban sa British."
    
     cx "Magtiwala sa Espanyol? Pagkatapos ng lahat ng ginawa nila? Tatalikuran nila tayo sa sandaling wala na ang mga British!"
-   
+    
     ds "Ang mga pananaw ninyo ay parehong may katwiran. Ang pakikipaglaban nang mag-isa ay maaaring humantong sa ating pagka lipol. Gayunpaman, ang pagtitiwala sa Espanyol ay isang sugal…"
     
     hide mc
@@ -222,6 +242,8 @@ label chapter_3:
     
     label subchapter2_3:
     
+    scene bg black
+    call slowTextfade("Hermano Pule's Cofradia de San Jose through Its Hymns")
     play music "/music/bg_chapter3.mp3" fadein 0.5 volume 0.2
     scene street request
     with fade
@@ -236,9 +258,19 @@ label chapter_3:
     
     h "Ako si Apolinario, Apolinario Dela cruz. Gusto mo bang sumama? May mga naghihintay sa akin at ipapakilala kita."
     
-    mc "Sigi ba, hindi rin naman ako pamilyar dito sa Tayabas."
-    
-    "..." "(Hermano and [mc] walked towards the group of people, as they wait for Hermano)"
+    menu:
+        "Hermano Pule invites you to come with him..."
+
+        "Go with him":     
+            mc "Sigi ba, hindi rin naman ako pamilyar dito sa Tayabas."
+            jump textEvent5
+
+        "Dont go with him":
+            "[mc] (Inner thoughts)" "I need to get information on this timeline to be able to get home"
+            jump textEvent5
+     
+    label textEvent5:
+        "..." "(Hermano and [mc] walked towards the group of people, as they wait for Hermano)"
     
     h "Sila nga pala ang aking mga kasamahan. Hermandad de la Archi-cofradía del Glorioso Señor San José y de la Virgen del Rosari. Iyan ang tawag samin."
     
@@ -279,4 +311,4 @@ label chapter_3:
     
     "..." "([sub_pronoun2] and the time machine fades into existence.)"
 
-    return
+    jump chapter_4

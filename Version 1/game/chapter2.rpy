@@ -27,6 +27,8 @@ label chapter_2:
 
         #bg town or city
         # Scene 1
+        scene bg black
+        call slowTextfade("Juan de Plasencia Customs of the Tagalog")
 
         play music "/music/bg_ph_street.mp3" fadein 0.5 volume 0.2
         scene bg town-square
@@ -38,61 +40,71 @@ label chapter_2:
 
         mc "The architecture, the atmosphere... It's like stepping into a history book."
 
+        play sound "audio/footstep concrete.mp3" fadein 0.5 volume 0.2
         "..." "[mc] continued strolling through the streets, taking in the sights and sounds of the unfamiliar place." 
         
         "..." "As he wanders, he notices a man standing near the town square, his gaze fixed intently on the bustling activity around him."
         
         hide mc
-        "..." "Intrigued by the man's focused observation, [mc] decides to approach and strike up a conversation."
+        menu:
+            "Approach the man standing near the town square?"
 
-        mc "Hi there. I couldn’t help but notice you observing the people around here. Are you studying the people here?"
+            "Yes":
+                "..." "Intrigued by the man's focused observation, [mc] decides to approach and strike up a conversation."
 
-        show mc speaking
-        show plasencia default at right
-        juanDePlasencia "(Looking up with a surprised, but friendly smile) Oh, hello! Yes, I am, in a way. I'm Juan De Plascensia, a friar. And you are?"
+            "No":
+                mc "I think i should go talk to him."
 
-        "[mc] (Inner Voice)" "That name sounds familiar, but I can't quite place it. Where have I heard it before?"
+        label talkEvent:
+            mc "Hi there. I couldn’t help but notice you observing the people around here. Are you studying the people here?"
 
-        mc "I'm [mc]. I travel around, trying to get a feel for each place. What exactly are you observing father Plasencia?"
+            show mc speaking
+            show plasencia default at right
+            juanDePlasencia "(Looking up with a surprised, but friendly smile) Oh, hello! Yes, I am, in a way. I'm Juan De Plascensia, a friar. And you are?"
 
-        juanDePlasencia "You seemed interested in what I do. Would you like to accompany me? This could be a great lesson for you."
+            "[mc] (Inner Voice)" "That name sounds familiar, but I can't quite place it. Where have I heard it before?"
 
-        mc "Definitely, I'd like to father Plascencia."
+            mc "I'm [mc]. I travel around, trying to get a feel for each place. What exactly are you observing father Plasencia?"
 
-        juanDePlasencia "I am honestly concerned with the welfare of Filipinos, spaniards limit the things the filipino can learn that aside from christian doctrine, reading and writing should also be taught to filipinos."
+            juanDePlasencia "You seemed interested in what I do. Would you like to accompany me? This could be a great lesson for you."
 
-        mc "That's an important point, father plasencia, education is key to empowerment. It's through knowledge and understanding that people can truly thrive. Limiting education limits potential."
+            mc "Definitely, I'd like to father Plascencia."
 
-        juanDePlasencia "That's right I learned this in the process of compiling the Customs, I obtained the simple truth in government, administration of justice, inheritances, slaves, and dowries."
+            juanDePlasencia "I am honestly concerned with the welfare of Filipinos, spaniards limit the things the filipino can learn that aside from christian doctrine, reading and writing should also be taught to filipinos."
 
-        "..." "Juan De Plasencia and [mc] are strolling through the outskirts of a bustling town, their conversation interspersed with occasional pauses as they take in the sights."
+            mc "That's an important point, father plasencia, education is key to empowerment. It's through knowledge and understanding that people can truly thrive. Limiting education limits potential."
 
-        juanDePlasencia "Look ahead, do you see those figures in the distance, dressed in lavish clothing and carrying themselves with confidence?"
-    
-        mc "Ah, yes father Plasencia. They stand out amidst the backdrop of the town, like majestic pillars amidst a sea of common folk. Are they the nobles?"
-    
-        juanDePlasencia "Precisely. Those are the maharlika, the noble class of society. From afar, one can almost feel the weight of their influence."
-    
-        mc "And beneath their lofty stature lies...?"
+            juanDePlasencia "That's right I learned this in the process of compiling the Customs, I obtained the simple truth in government, administration of justice, inheritances, slaves, and dowries."
 
-        juanDePlasencia "A grim reality, I'm afraid. Beneath them are the commoners, the aliping namamahay, whose lives are intertwined with serving their noble masters."
-    
-        mc "It's as if a veil of privilege separates them from the rest of society."
+            "..." "Juan De Plasencia and [mc] are strolling through the outskirts of a bustling town, their conversation interspersed with occasional pauses as they take in the sights."
 
-        juanDePlasencia "Indeed, and let us not forget those who dwell at the very bottom of this hierarchy—the slaves, the aliping guiguilir, condemned to a life of servitude and hardship."
+            juanDePlasencia "Look ahead, do you see those figures in the distance, dressed in lavish clothing and carrying themselves with confidence?"
+        
+            mc "Ah, yes father Plasencia. They stand out amidst the backdrop of the town, like majestic pillars amidst a sea of common folk. Are they the nobles?"
+        
+            juanDePlasencia "Precisely. Those are the maharlika, the noble class of society. From afar, one can almost feel the weight of their influence."
+        
+            mc "And beneath their lofty stature lies...?"
 
-        mc "As we witness this scene unfold before us, it shows the injustices of the Filipino experience."
-        hide mc
-        hide plasencia
-        pause (3)
+            juanDePlasencia "A grim reality, I'm afraid. Beneath them are the commoners, the aliping namamahay, whose lives are intertwined with serving their noble masters."
+        
+            mc "It's as if a veil of privilege separates them from the rest of society."
 
-        scene bg town-square
-        with fade
+            juanDePlasencia "Indeed, and let us not forget those who dwell at the very bottom of this hierarchy—the slaves, the aliping guiguilir, condemned to a life of servitude and hardship."
+
+            mc "As we witness this scene unfold before us, it shows the injustices of the Filipino experience."
+            hide mc
+            hide plasencia
+            pause (3)
+
+            scene bg town-square
+            with fade
 
         #Scene 2
 
 
         show plsencia default at left
+        play sound "audio/Footstep Concrete Slowed.mp3"
         juanDePlasencia "As we walk through these streets, let me share another fascinating aspect of The town. Disputes, my friend, were settled with a certain degree of communal wisdom. "
 
         show mc default at right
@@ -207,12 +219,14 @@ label chapter_2:
         "..." "To be continued..."
         pause(2)
 
-        call sub_chapter2
+        jump sub_chapter2
 
         label sub_chapter2:
         #Antonio De Morga Sucesos de Las Islas
         
         #Scene 1 (Library)
+        show bg black
+        call slowTextfade("Antonio De Morga Sucesos de Las Islas")
 
         play music "music/bg_library.mp3" fadein 0.5 volume 0.2
         scene bg library
@@ -227,13 +241,22 @@ label chapter_2:
         "..." "(A librarian walks up to him)"
 
         librarian "Hey.. what are you doing here?"
-
         show mc realization
-        mc "Ohh" 
-        mc "I.." 
-        mc "Uhh..."
+        menu:
+            "I am..."
 
-        librarian "Why are you here?"
+            "doing nothing":
+                jump textEvent2
+
+            "I dont know":
+                jump textEvent2
+            "...":
+                mc "Ohh" 
+                mc "I.." 
+                mc "Uhh..."
+
+        label textEvent2:
+            librarian "Why are you here?"
 
         show mc speaking2
         mc "It's because.. I.. I came to.."
@@ -248,7 +271,7 @@ label chapter_2:
 
         "..." "(Just when [mc] is about to explain to the librarian, someone interrupts the two.. then Jose Rizal explains to the librarian that [mc] is his friend which makes the librarian leave him.)"
         hide librarian
-        show rizal default at right
+        show rizal default at right 
 
         rizal "Uhhm, so sorry for interrupting. What did the librarian say to you?"
 
@@ -270,8 +293,16 @@ label chapter_2:
         rizal "What brings my fellow Filipino here in london? Is there anything you need?"
 
         show mc speaking2 at left
-        mc "Well, uh.. I'm actually looking for a book about Philippine History. I am curious and want to know about it."
 
+        menu: 
+            "What are you doing in london?"
+
+            "I'm looking for a book about Philippine History":
+                mc "Well, uh.. I'm actually looking for a book about Philippine History. I am curious and want to know about it."
+
+            "It's none of your business":
+                "[mc] (Inner thoughts)" "I probably should tell him"
+                mc "Well, uh.. I'm actually looking for a book about Philippine History. I am curious and want to know about it."
         show mc default at left
         rizal "Oh wow, I see.."
         rizal " I'm happy to hear that you are interested in Philippine History."
@@ -350,6 +381,8 @@ label chapter_2:
         #Scene 1 (Spanish Base, unfamiliar Room)
         "..." "([mc] suddenly got teleported in a Spanish base, [pronoun] look around to see where [pronoun] was)"
 
+        scene bg black
+        call slowTextfade("Francisco de Sande's letter to Estevan Rodriguez de Figueroa")
         scene bg militarybase-storageroom
         with fade
         play music "music/bg_military_hallway.mp3" fadein 0.5 volume 0.5
@@ -363,8 +396,19 @@ label chapter_2:
         "..." "([sub_pronoun1] eyes widen at the sight of countless soldiers milling about in a large courtyard.)"
         
         "..." "([mc] turns around, [sub_pronoun1] eyes scanning the room again. This time, [pronoun] notices an old wooden chest in the corner. [pronoun] rushes over and flings it open, revealing an assortment of military clothes.)"
-        "..." "([pronoun] quickly changes out of [sub_pronoun1] clothes and into the soldier’s uniform, so [pronoun] could try to blend in with the soldiers.)"
+        
+        menu:
+            "What do i do?"
+        
+            "Disguise myself as a spanish soldier":
+                jump textEvent3
+            "Hope and pray they dont notice me":
+                "[mc] (Inner thoughts)" "Thats probably not a good idea"
+                jump textEvent3
+        
 
+        label textEvent3:
+            "..." "([pronoun] quickly changes out of [sub_pronoun1] clothes and into the soldier’s uniform, so [pronoun] could try to blend in with the soldiers.)"
         mc "Alright, think... act natural."
 
         show mc disguise
@@ -375,8 +419,8 @@ label chapter_2:
         show mc disguise
         "..." "(The captain scrutinizes [mc] for a moment before speaking in a commanding tone.)"
         hide mc
+
         show figueroa default
-        show figueroa default at left
         figueroa "You there, soldier! I don't think I've seen you before. Which unit are you from?"
         show mc disguise3 at right
         mc "..."
@@ -388,8 +432,14 @@ label chapter_2:
 
         "..." "[mc] hesitates only a moment before falling in step behind the captain, trying to keep [sub_pronoun1] expression neutral and focused."
         show mc disguise2 at right
+        with dissolve
+        hide figueroa
+        hide mc
+        show mc disguise2 
+        with dissolve
         "[mc] (Speaking softly to [sub_pronoun2]self)" "Is he Captain Figueroa? It seems I got teleported to another historical event."
 
+        play sound "audio/Footstep Concrete Slowed.mp3" volume 0.2
         "..." "(Captain Figueroa leads [mc] through winding corridors to a set of large, ornate doors, which open into a spacious, well-appointed set of quarters.)"
         "..." " ([sub_pronoun1] mind alerts for any details that might help [sub_pronoun2] understand where [pronoun] is or what is expected of [sub_pronoun2].)"
       
@@ -399,12 +449,12 @@ label chapter_2:
 
         "..." "([mc], now disguised as a Spanish soldier, follows Captain Figueroa as commanded, feeling a mix of anxiety and curiosity about [sub_pronoun1] sudden appearance in a Spanish base.)"
 
+        show figueroa default at left
         "[figueroa] (in an authoritative tone)" "You there, follow me. I need someone to assist me with these documents."
 
         scene bg figueroa-office
         with fade
-        
-        queue music "music/bg_military_office.mp3" fadein 0.5 volume 0.5 
+        play music "music/bg_military_office.mp3" fadein 0.5 volume 0.5 
         "..." "([mc] obediently trails behind Figueroa, entering the captain's quarters where [pronoun] is instructed to standby in a corner.)"
         "..." "(Figueroa retrieves a letter from his uniform's inner pocket, unfolding it with a serious expression)"
         
@@ -433,4 +483,4 @@ label chapter_2:
         #End Chapter 2
         pause (2)
     # This ends the game.
-        return
+        jump chapter_3

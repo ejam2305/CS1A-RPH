@@ -21,7 +21,7 @@ define CIAExecutive = Character("CIA Executive", color="#777875", voice_tag="CIA
 
 
 label chapter_4:
-
+    show bg black
     call slowTextfade("Chapter 4 Start")
 
     call slowTextfade("The Philippines Under the United States")
@@ -30,6 +30,8 @@ label chapter_4:
     #(Filipino Grievances Against Governor-General Wood)
     #SCENE1
 
+    show bg black
+    call slowTextfade("Filipino Grievances Against Governor-General Wood")
     play music "/music/bg_ph_street.mp3" fadein 0.5 volume 0.2
 
     scene bg ph-street
@@ -38,8 +40,22 @@ label chapter_4:
     show mc thinking2
 
     "..." " [mc] gets teleported to a street in Manila noticing the different scenery and ambiance"
-    "..." " [mc] sees 5 people storming out of a building one of which  [mc] remembers to be Manuel Quezon"
-    "..." "shortly after storming out of the building Manuel Quezon separates from the group so [mc] decides to follow the other 4 people who seem to be walking towards an alley-way."
+    "..." " [mc] sees 5 people storming out of a building one of which [mc] remembers to be Manuel Quezon"
+    "..." "shortly after storming out of the building Manuel Quezon separates from the group"
+    
+    menu:
+        "Manuel Quezon separated from the group, I should..."
+
+        "Follow Manuel Quezon":
+            "[mc] (Inner thoughts)" "He doesn't seem to be particularly important right now"
+            jump textEvent6
+        "Ignore him and follow the other 4":
+            jump textEvent6
+
+    
+    label textEvent6:
+        "..." "[mc] decides to follow the other 4 people who seem to be walking towards an alley-way."
+    play sound "audio/Footstep concrete.mp3" volume 0.2
     "..." "Along the way the [mc] listens in to the 4 people gossiping."
 
     mc "(Looking around) Teka, nasaan ako? Ibang-iba to sa lugar kung saan ako nung una. (Spots Manuel Quezon and the group) Teka, hindi ba si Manuel Quezon yan? Dapat ko silang sundan"
@@ -122,6 +138,8 @@ label chapter_4:
     scene bg cia-table
     with fade
 
+    show bg black
+    call slowTextfade("CIA Intelligence Memorandum")
     play music "music/bg_cia.mp3" fadein 0.5 volume 0.2 fadeout 0.5
 
     
@@ -133,10 +151,19 @@ label chapter_4:
 
     "..." "[mc] Looks up to the door and sees the logo of the CIA."
 
-    mc " Parang nasa building ata ako ng CIA. Makinig kaya ako ano pinag-uusapan nila."
+    mc " Parang nasa building ata ako ng CIA."
+    
+    menu:
+        "It seems i'm inside the CIA building..."
 
-    "..." "[mc] stands at the corner of a room acting as a guard."
-    "..." "The meeting commences as a CIA executive opens with a stern tone."
+        "Listen in on the meeting":
+            jump textEvent7
+        "This is dangerous I should get out of here":
+            "[mc] (Inner thoughts)" "If i dont do this I wont be able to go home"
+
+    label textEvent7:
+        "..." "[mc] stands at the corner of a room acting as a guard."
+        "..." "The meeting commences as a CIA executive opens with a stern tone."
     hide mc
     show executive default at left
     CIAExecutive "Gentlemen, we are gathered today to discuss a matter of national security."
