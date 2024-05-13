@@ -103,7 +103,7 @@ label chapter_2:
         #Scene 2
 
 
-        show plsencia default at left
+        show plasencia default at left
         play sound "audio/Footstep Concrete Slowed.mp3"
         juanDePlasencia "As we walk through these streets, let me share another fascinating aspect of The town. Disputes, my friend, were settled with a certain degree of communal wisdom. "
 
