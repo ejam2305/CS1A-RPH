@@ -244,7 +244,7 @@ label chapter_3:
     scene bg black
     call slowTextfade("Hermano Pule's Cofradia de San Jose through Its Hymns")
     play music "/music/bg_chapter3.mp3" fadein 0.5 volume 0.2
-    scene street request
+    scene bg ph-street
     with fade
     
     "..." "(Hermano approaches [mc].)"
