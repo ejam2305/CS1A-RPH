@@ -121,7 +121,7 @@ label chapter_3:
     show mc speaking2
     mc "Hindi alam ng mga espanyol kung anong naghihintay para sa kanila."
    
-    show speaker at right
+    show speaker at left
     cx "Sinabi mo pa! Handa na tayo para ipaglaban ang nararapat!"
     
     hide speaker
